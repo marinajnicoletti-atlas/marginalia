@@ -494,6 +494,38 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 return function(){if(h(t)!==CK)lock();else if(host)fix();return CK}})();
 </script>
 <script>
+var TRK=(function(){
+var EP='https://script.google.com/macros/s/AKfycbyU_JuAo11C7v6msC4zHdY2CQcg6WycP-_L9xcd5YXn482M9tovzxOhjBEru6063b8h/exec';
+function g(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function s(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function ss(k,v){try{if(v===undefined)return sessionStorage.getItem(k);sessionStorage.setItem(k,v)}catch(e){return null}}
+var q=new URLSearchParams(location.search),m={};
+if(q.get('eu')==='1')s('mg_owner','1');else if(q.get('eu')==='0'){try{localStorage.removeItem('mg_owner')}catch(e){}}
+var rf=(q.get('ref')||'').replace(/[^\w\-.]/g,'').slice(0,30);if(rf&&!g('mg_ref'))s('mg_ref',rf);
+var uid=g('mg_uid');if(!uid){uid=(Math.random().toString(36).slice(2,8)+Date.now().toString(36)).slice(0,12);s('mg_uid',uid)}
+var TZ={'Europe/Lisbon':'PT','Atlantic/Azores':'PT','Atlantic/Madeira':'PT','Europe/Madrid':'ES','Europe/London':'GB','Europe/Paris':'FR','Europe/Berlin':'DE','Europe/Rome':'IT','America/Argentina/Buenos_Aires':'AR','America/Bogota':'CO','America/Mexico_City':'MX','America/Santiago':'CL','America/Lima':'PE','America/Montevideo':'UY','America/Toronto':'CA','America/New_York':'US','America/Chicago':'US','America/Denver':'US','America/Los_Angeles':'US','Africa/Luanda':'AO','Africa/Maputo':'MZ','Asia/Tokyo':'JP'};
+function country(){var z='',l=navigator.language||'';try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+ if(/^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Manaus|Belem|Cuiaba|Campo_Grande|Porto_Velho|Rio_Branco|Noronha|Maceio|Araguaina|Boa_Vista|Santarem|Eirunepe)$/.test(z))return[ 'BR',z];
+ if(TZ[z])return[TZ[z],z];var r=(l.split('-')[1]||'').toUpperCase();return[r,z]}
+function off(){return g('mg_notrack')==='1'}
+function owner(){return g('mg_owner')==='1'}
+function send(e,o){o=o||{};if(owner()||off()||!EP)return;try{var c=country();
+ fetch(EP,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({u:uid,r:g('mg_ref')||'',e:e,b:o.b||0,h:o.h||0,c:c[0],l:(navigator.language||'').slice(0,10),z:c[1],x:o.x||''})}).catch(function(){})}catch(x){}}
+function once(e,o){if(ss('t_'+e))return;ss('t_'+e,'1');send(e,o)}
+function note(){if(owner()||g('mg_tn')==='1')return;
+ var L=((g('mg_lang')||navigator.language||'pt')+'').slice(0,2),T={pt:['Coletamos só contagens anônimas de uso (nunca títulos nem trechos). Seus livros ficam apenas no seu navegador.','Ok','Desativar'],en:['We only collect anonymous usage counts (never titles or highlights). Your books stay in your browser.','OK','Turn off'],es:['Solo recogemos recuentos anónimos de uso (nunca títulos ni subrayados). Tus libros quedan en tu navegador.','Ok','Desactivar']}[L]||null;
+ if(!T)T=['Coletamos só contagens anônimas de uso (nunca títulos nem trechos). Seus livros ficam apenas no seu navegador.','Ok','Desativar'];
+ var d=document.createElement('div');d.setAttribute('role','status');d.style.cssText='position:fixed;left:12px;right:12px;bottom:52px;max-width:520px;margin:0 auto;z-index:99999;background:#222;color:#fff;font:13px/1.4 system-ui,sans-serif;padding:10px 12px;border-radius:10px;display:flex;gap:10px;align-items:center;box-shadow:0 4px 18px #0005';
+ d.innerHTML='<span style="flex:1"></span><button style="background:none;border:1px solid #888;color:#fff;border-radius:8px;padding:4px 10px;cursor:pointer"></button><button style="background:#fff;color:#222;border:0;border-radius:8px;padding:4px 12px;cursor:pointer;font-weight:600"></button>';
+ var b=d.querySelectorAll('button');d.firstChild.textContent=T[0];b[0].textContent=T[2];b[1].textContent=T[1];
+ function end(){s('mg_tn','1');d.remove()}b[1].onclick=end;b[0].onclick=function(){s('mg_notrack','1');end()};
+ document.body.appendChild(d);setTimeout(function(){if(d.isConnected)end()},20000)}
+function start(){once('visit');note()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+return{ev:send,once:once,off:off,tog:function(){s('mg_notrack',off()?'0':'1')}};
+})();
+</script>
+<script>
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let S={books:{},me:'Eu'},view={q:'',tag:'',sort:'recent',f:0,who:'',ord:'p',grp:'n',vw:'s'},daily=null,route=null;
 try{S=JSON.parse(localStorage.getItem('mg1'))||S}catch(e){}
@@ -590,13 +622,13 @@ function ingest(t){const o=parse(t);let nb=0,nh=0;const nw=[];
   if(!ex){S.books[p.id]={id:p.id,title:p.title,author:p.author,tags:[],r:0,q:[],hl:p.hl};nb++;nh+=p.hl.length;nw.push(p.id)}
   else p.hl.forEach(h=>{if(!ex.hl.some(y=>y.id===h.id)){ex.hl.push(h);nh++}})});
  if(nw.length&&!matchMedia('(prefers-reduced-motion:reduce)').matches){const ids=nw.slice(0,60),st=Math.round(Math.max(90,Math.min(420,5500/ids.length)));NEWSEQ={ids:new Set(ids),t0:performance.now(),st,du:Math.round(st*.9)};setTimeout(()=>{NEWSEQ=null},st*ids.length+700)}
- save();daily=null;toast(nb||nh?tt('{a} livros e {b} grifos novos',{a:nb,b:nh}):'Nada novo encontrado. O arquivo é um My Clippings.txt?');render();enrichAll()}
+ if(nb||nh)TRK.ev('import_clippings',{b:nb,h:nh});save();daily=null;toast(nb||nh?tt('{a} livros e {b} grifos novos',{a:nb,b:nh}):'Nada novo encontrado. O arquivo é um My Clippings.txt?');render();enrichAll()}
 const cover=b=>{const u=b.img||b.cov,h=hash(b.title)%360;return `<div class="cv" style="background:linear-gradient(160deg,hsl(${h} 45% 32%),hsl(${(h+40)%360} 50% 18%))"><b>${esc(b.title)}</b><i>${esc(b.author)}</i>${u?`<img src="${esc(u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<60)this.remove()" onerror="this.remove()">`:''}</div>`};
 const stars=b=>[1,2,3,4,5].map(i=>`<button class="st" aria-label="${tt('{n} estrelas',{n:i})}" data-a="r" data-i="${i}">${i<=b.r?'★':'☆'}</button>`).join('');
 let nt=0;const cur=()=>S.books[location.hash.slice(1)];
 function render(){__s();document.documentElement.lang=lang;const r=location.hash.slice(1);
  if(r!==route){route=r;view.q='';view.f=0;view.who='';scrollTo(0,0);const A=$('#app');A.classList.remove('turn');void A.offsetWidth;if(S.books[r]&&!nt)A.classList.add('turn')}
- const b=S.books[r],g=r.startsWith('g-')&&r.slice(2);const ap=r==='apr';$('#app').innerHTML=ap?aprV():b?bookV(b):g?roomV(g):libV();ap?aprInit():b?list():g?grid():results(1);qdRender();$('#hq').value=view.q;document.body.classList.toggle('inb',!!b);tr(document.body)}
+ const b=S.books[r],g=r.startsWith('g-')&&r.slice(2);const ap=r==='apr';if(ap)TRK.once('aprendizado');$('#app').innerHTML=ap?aprV():b?bookV(b):g?roomV(g):libV();ap?aprInit():b?list():g?grid():results(1);qdRender();$('#hq').value=view.q;document.body.classList.toggle('inb',!!b);tr(document.body)}
 const srt=bs=>{const d=b=>Math.max(0,...b.hl.map(h=>h.d)),k={recent:b=>-d(b),oldest:b=>d(b)||9e15,title:b=>b.title.toLowerCase(),author:b=>(b.author||'~').toLowerCase(),count:b=>-b.hl.length,rating:b=>-b.r}[view.sort]||(b=>-d(b));return bs.map(b=>[k(b),b]).sort((x,y)=>x[0]<y[0]?-1:x[0]>y[0]?1:0).map(x=>x[1])};
 const tile=b=>`<a class="bk" href="#${b.id}" data-a="op" data-i="${b.id}" title="${esc(b.title)}"><div class="sf">${cover(b)}</div><div class="m"><span>${'★'.repeat(b.r)||'&nbsp;'}</span><small>${tt('{n} grifos',{n:b.hl.length})}</small></div></a>`;
 const PAL=['#6b1f2a','#1f3a5f','#2f4a3b','#b8862b','#e8dcc0','#1c1c1c','#8a5a36','#2b5a5e','#5a3a5e','#a4472b','#3b4a2b','#c9b88f'];
@@ -725,6 +757,7 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t
  else if(a==='en'){cvOpen()}
  else if(a==='op'){e.preventDefault();mclose();openBook(i)}
  else if(a==='ap')location.hash='apr'
+ else if(a==='trk'){TRK.tog();settings(0)}
  else if(a==='st'){applySkin();settings(0)}
  else if(a==='s1'){mclose();$('#f').click()}
  else if(/^s[2-5]$/.test(a)){applySkin();settings(+a[1])}
@@ -761,7 +794,7 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t
  else if(a==='aq')modal('<h3>Pergunta para o clube</h3><textarea rows="3"></textarea>',([q])=>{if(q){b.q.push(q);save();render()}});
  else if(a==='cp')copy(pauta(b));
  else if(a==='wa')window.open('https://wa.me/?text='+encodeURIComponent(pauta(b)),'_blank');
- else if(a==='gc'){const c=exportCode(b);copy(c);toast('Código copiado. Envie para o grupo.')}
+ else if(a==='gc'){TRK.ev('club_code');const c=exportCode(b);copy(c);toast('Código copiado. Envie para o grupo.')}
  else if(a==='ff'){view.f=view.f?0:1;render()}
  else if(a==='ah'){NB.files=[];NB.n=0;modal('<h3>Grifo manual</h3>'+nbBlock(),()=>{
   if(NB.files.some(f=>f.st==='busy')){toast('Aguarde a leitura das notas terminar');return false}
@@ -795,7 +828,7 @@ function results(anim){const el=$('#res');if(!el)return;const bs=Object.values(S
  el.innerHTML=h;el.classList.toggle('in',!!anim);tr(el)}
 let QD={open:0,q:'',bid:'',g:'',r:null,done:0,mode:'',tc:{},lang:'',tb:0,q2:'',qb:0};
 function rand(){const m=QD.q.trim()?matcher(QD.q):null,pool=Object.values(S.books).filter(b=>(!QD.bid||b.id==QD.bid)&&(!QD.g||gk(b)==QD.g)).flatMap(b=>b.hl.map(h=>[b,h])).filter(([b,h])=>!m||m(h.text+' '+(h.note||'')));QD.r=pool[Math.floor(Math.random()*pool.length)]||null;QD.lang='';QD.q2='';QD.qb=0}
-function openDraw(id){QD.open=1;QD.mode='f';QD.bid=id||'';QD.q='';QD.g='';QD.r=null;QD.done=0;if(id){rand();QD.done=1}if(route===''){qdRender();if(id)qdFlip('')}else location.hash=''}
+function openDraw(id){TRK.ev('draw');QD.open=1;QD.mode='f';QD.bid=id||'';QD.q='';QD.g='';QD.r=null;QD.done=0;if(id){rand();QD.done=1}if(route===''){qdRender();if(id)qdFlip('')}else location.hash=''}
 function qdFlip(oh){if(sty!=='book'||matchMedia('(prefers-reduced-motion:reduce)').matches)return;const q=$('#qd');if(!q||!QD.open)return;const N=8,w=document.createElement('div');w.className='fpw';w.setAttribute('aria-hidden','true');
  for(let i=0;i<N;i++){const p=document.createElement('i');p.className='fp'+(i==0&&oh?' o':'');p.style.setProperty('--i',i);if(i==0&&oh){p.innerHTML=oh;p.querySelectorAll('[id]').forEach(x=>x.removeAttribute('id'))}w.append(p)}
  q.append(w);setTimeout(()=>w.remove(),N*32+400)}
@@ -948,7 +981,7 @@ function nbSave(){const ti=cs($('#nbt').value);if(!ti){toast('Informe o título 
  if(NB.files.some(f=>f.st==='busy')){toast('Aguarde a leitura das notas terminar');return false}
  const b=S.books[id]={id,title:ti,author:au,hl:[],tags:[],r:NB.r,q:[]},g=$('#nbg').value;nbHl(b);
  if(g){b.g=g;b.gm=1}if(NB.img){b.img=NB.img;b.col=null;b.pal=null}
- save();toast('Livro adicionado');goHome()}
+ save();TRK.ev('manual_book');toast('Livro adicionado');goHome()}
 function nbOpen(){NB.img='';NB.r=0;NB.i=-1;NB.files=[];NB.n=0;
  modal(`<h3>Novo livro</h3><label>Título <b class="req">*</b></label><input id="nbt" autocomplete="off">
 <label>Autor</label><input id="nba" autocomplete="off" role="combobox" aria-expanded="false" placeholder="Digite para buscar ou criar um autor"><div id="nbl" class="nbl" role="listbox" hidden></div>
@@ -1128,7 +1161,7 @@ function settings(n,eid){const bm=sty==='book',d=$('#drw'),fl=bm&&d.classList.co
  if(n==6){const x=cskins.find(c=>c.id==eid),m=SKM[skin],base=x||curSk()||{hf:m?m[0]:'Fraunces',bf:m?m[1]:'Instrument Sans',c:(m||SKM.classic)[2]},c=base.c;CE=x?x.id:'';
   return pg(`<button class="lk bkb" data-a="s4">${I('left')}<span>Aparência</span></button>`+ti('palette',x?'Editar paleta':'Nova paleta')+`<label class="fl">Nome<input class="ce" id="ce-n" value="${esc(x?x.name:'')}" placeholder="Minha paleta"></label>`+lbl('palette','Cores')+'<div class="cg">'+[['bg','Fundo'],['card','Papel'],['ink','Texto'],['acc','Destaque'],['wood','Madeira']].map(([k,l])=>`<label>${l}<input type="color" class="ce" id="ce-${k}" value="${c[k]}"></label>`).join('')+'</div>'+lbl('type','Fontes')+`<label class="fl">Fonte dos títulos<input class="ce" id="ce-hf" list="fl" value="${esc(base.hf)}"></label><label class="fl">Fonte do texto<input class="ce" id="ce-bf" list="fl" value="${esc(base.bf)}"></label><datalist id="fl">${[...FLd].map(f=>`<option value="${f}">`).join('')}</datalist><p class="sm">Digite qualquer fonte do Google Fonts ou instalada no seu computador.</p><div class="qa"><button class="btn" data-a="sks">Salvar</button><button class="lk" data-a="s4">Cancelar</button></div>`)}
  if(n==5)return pg(back+ti('globe','Idioma')+O('lg',lang,[['pt','Português'],['en','English'],['es','Español']]));
- pg('<h3>Configurações</h3>'+row('s1','Importar My Clippings','clip')+row('s2','Importar capas e gêneros','img',1,2)+row('nb','Adicionar livro manual','bookplus')+row('bm','Edições em massa','pen',1)+row('s3','Clube do livro','users',1,3)+row('s4','Aparência','palette',1,4)+row('s5','Idioma','globe',1,5))}
+ pg('<h3>Configurações</h3>'+row('s1','Importar My Clippings','clip')+row('s2','Importar capas e gêneros','img',1,2)+row('nb','Adicionar livro manual','bookplus')+row('bm','Edições em massa','pen',1)+row('s3','Clube do livro','users',1,3)+row('s4','Aparência','palette',1,4)+row('s5','Idioma','globe',1,5)+row('trk',TRK.off()?'Ativar estatísticas anônimas':'Desativar estatísticas anônimas','user'))}
 async function unzip(buf){const v=new DataView(buf),u=new Uint8Array(buf);let e=buf.byteLength-22;while(e>=0&&v.getUint32(e,true)!==0x06054b50)e--;if(e<0)return{};const n=v.getUint16(e+10,true);let p=v.getUint32(e+16,true);const F={};
  for(let k=0;k<n;k++){const m=v.getUint16(p+10,true),cs=v.getUint32(p+20,true),nl=v.getUint16(p+28,true),xl=v.getUint16(p+30,true),cl=v.getUint16(p+32,true),lo=v.getUint32(p+42,true),name=new TextDecoder().decode(u.subarray(p+46,p+46+nl));p+=46+nl+xl+cl;
   F[name]=async()=>{const ln=v.getUint16(lo+26,true),lx=v.getUint16(lo+28,true),d=u.subarray(lo+30+ln+lx,lo+30+ln+lx+cs);if(m==0)return d;return new Uint8Array(await new Response(new Blob([d]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer())}}
@@ -1168,7 +1201,7 @@ async function importKindle(items){closeDrw();toast('Lendo a pasta do Kindle…'
   if(!blob){nc++;noc.push(b.title+(m&&/kfx/i.test(m[1])?' (.kfx)':''));continue}
   const d=await shrink(blob);if(d){b.img=d;b.col=null;b.pal=null;ok++}else sf++}
  save();
- if(ok)toast(tt('{n} capas importadas do Kindle',{n:ok}),4000);
+ if(ok)TRK.ev('covers_import',{b:ok});if(ok)toast(tt('{n} capas importadas do Kindle',{n:ok}),4000);
  if(!ok||miss.length||nc){const nt=Object.keys(th).length,L=(h,a)=>a.length?'<p class="sm"><b>'+tt(h)+'</b> '+a.slice(0,10).map(esc).join('; ')+(a.length>10?'…':'')+'</p>':'';
   modal('<h3>Importar capas</h3><p class="sm">'+tt('{a} arquivos de livro lidos · {b} miniaturas do Kindle · {c} capas aplicadas',{a:nb,b:nt,c:ok})+'</p>'
    +'<p class="sm">'+tt('{a} livros reconhecidos na biblioteca · {b} sem capa disponível · {c} capas ilegíveis',{a:mt,b:nc,c:sf})+'</p>'
