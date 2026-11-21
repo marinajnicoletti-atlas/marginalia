@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Painel Marginália</title>
+<style>
+:root{--bg:#f6f3ee;--card:#fffdf9;--ink:#2a2622;--mut:#7a7168;--bd:#e4ddd2;--acc:#7a3b2e;--bar:#b4634f;--bar2:#d9b9ad;--ok:#3f7a4f}
+@media(prefers-color-scheme:dark){:root{--bg:#1d1a17;--card:#26221f;--ink:#efe9e1;--mut:#a39a8f;--bd:#3a342f;--acc:#e0a08f;--bar:#d08a76;--bar2:#5a3f37;--ok:#7fc08e}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px max(16px,env(safe-area-inset-left,0px)) 60px}
+main{max-width:980px;margin:0 auto}
+h1{font:600 26px/1.2 Georgia,"Times New Roman",serif;margin:0}h2{font:600 13px/1 system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:0 0 12px}
+header{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;margin-bottom:20px}
+.sub{color:var(--mut);font-size:13px}
+button,input{font:inherit;color:inherit}button{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:7px 12px;cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.k{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px}.k b{display:block;font:600 30px/1.1 Georgia,serif;font-variant-numeric:tabular-nums}.k span{font-size:13px;color:var(--mut)}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:16px}
+.p{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:16px;min-width:0}
+.r{display:grid;grid-template-columns:minmax(70px,34%) 1fr auto;gap:8px;align-items:center;margin:7px 0;font-size:14px}.r i{display:block;height:10px;border-radius:3px;background:var(--bar)}.r em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--mut)}.r span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.days{display:flex;align-items:flex-end;gap:4px;height:110px}.days div{flex:1;background:var(--bar);border-radius:3px 3px 0 0;min-height:2px;position:relative}.days div:last-child{background:var(--acc)}
+.dl{display:flex;gap:4px;font-size:10px;color:var(--mut);margin-top:4px}.dl span{flex:1;text-align:center}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--bd);white-space:nowrap}th{color:var(--mut);font-weight:500}
+.em{color:var(--mut);font-size:14px}.err{color:#b3261e;margin-top:8px}
+#lg{max-width:360px;margin:12vh auto;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:22px}#lg input{width:100%;padding:9px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);margin:10px 0}
+</style></head><body><main>
+<section id="lg" hidden><h1>Painel Marginália</h1><p class="sub">Digite a chave do painel. Ela fica salva só neste navegador.</p>
+<form id="f"><input id="k" type="password" autocomplete="off" aria-label="Chave" placeholder="Chave"><button>Entrar</button></form><div class="err" id="er"></div></section>
+<div id="app" hidden>
+<header><div><h1>Painel Marginália</h1><div class="sub" id="up">Carregando…</div></div><div><button id="rf">Atualizar</button> <button id="ex">Sair</button></div></header>
+<div class="kp" id="kp"></div>
+<div class="g"><section class="p"><h2>Do clique ao uso</h2><div id="fn"></div></section><section class="p"><h2>Pessoas por dia (14 dias)</h2><div class="days" id="dy"></div><div class="dl" id="dl"></div></section></div>
+<div class="g"><section class="p"><h2>Por link (ref)</h2><div id="rr"></div></section><section class="p"><h2>O que mais usam</h2><div id="ev"></div></section></div>
+<div class="g"><section class="p"><h2>Países (estimado)</h2><div id="pa"></div></section><section class="p"><h2>Idiomas</h2><div id="id"></div></section></div>
+<section class="p"><h2>Atividade recente</h2><div class="tw"><table id="rc"></table></div></section>
+<p class="sub">Contagens anônimas. Nada de títulos ou trechos. Sua própria navegação (?eu=1) não entra. País vem do fuso horário do navegador.</p>
+</div></main>
+<script>
+var EP='https://script.google.com/macros/s/AKfycbyU_JuAo11C7v6msC4zHdY2CQcg6WycP-_L9xcd5YXn482M9tovzxOhjBEru6063b8h/exec';
+var $=function(s){return document.querySelector(s)},KEY='';
+function g(){try{return localStorage.getItem('mg_pk')||''}catch(e){return ''}}
+function s(v){try{v?localStorage.setItem('mg_pk',v):localStorage.removeItem('mg_pk')}catch(e){}}
+function esc(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var EN={visit:'Visitas',import_clippings:'Importou My Clippings',covers_import:'Importou capas',manual_book:'Livro manual',draw:'Sorteou trecho',aprendizado:'Aprendizado',club_code:'Código do clube'};
+var PN={BR:'Brasil',PT:'Portugal',US:'EUA',ES:'Espanha',GB:'Reino Unido',FR:'França',DE:'Alemanha',IT:'Itália',AR:'Argentina',CO:'Colômbia',MX:'México',CL:'Chile',PE:'Peru',UY:'Uruguai',CA:'Canadá',AO:'Angola',MZ:'Moçambique',JP:'Japão'};
+function bars(el,m,lab){var a=Object.keys(m).map(function(k){return[k,m[k]]}).sort(function(x,y){return y[1]-x[1]}).slice(0,8);if(!a.length){el.innerHTML='<div class="em">Sem dados ainda.</div>';return}var mx=a[0][1];
+ el.innerHTML=a.map(function(x){return'<div class="r"><span title="'+esc(lab?lab(x[0]):x[0])+'">'+esc(lab?lab(x[0]):x[0])+'</span><div><i style="width:'+Math.max(3,x[1]/mx*100)+'%"></i></div><em>'+x[1]+'</em></div>'}).join('')}
+function load(){$('#up').textContent='Atualizando…';
+ fetch(EP+'?k='+encodeURIComponent(KEY)).then(function(r){return r.text()}).then(function(t){var j;try{j=JSON.parse(t)}catch(e){s('');KEY='';show(0);$('#er').textContent='Chave incorreta.';return}render(j.rows||[])}).catch(function(){$('#up').textContent='Não foi possível carregar. Tente atualizar.'})}
+function render(R){R=R.filter(function(r){return r[1]!=='teste'}).map(function(r){return{t:new Date(r[0]),u:r[1],r:r[2]||'(sem link)',e:r[3],b:+r[4]||0,h:+r[5]||0,c:r[6]||'?',l:(r[7]||'?').split('-')[0].toLowerCase()}});
+ var P={};R.forEach(function(r){(P[r.u]=P[r.u]||{u:r.u,r:r.r,days:{},imp:0,first:r.t}).days[r.t.toDateString()]=1;var p=P[r.u];if(r.e==='import_clippings')p.imp=1;if(r.t<p.first){p.first=r.t;p.r=r.r}if(r.c!=='?')p.c=r.c;p.l=r.l});
+ var us=Object.keys(P).map(function(k){return P[k]}),n=us.length,imp=us.filter(function(p){return p.imp}).length,back=us.filter(function(p){return Object.keys(p.days).length>1}).length,
+ B=0,H=0;R.forEach(function(r){if(r.e==='import_clippings'){B+=r.b;H+=r.h}});
+ var pc=function(a){return n?Math.round(a/n*100)+'%':'0%'};
+ $('#kp').innerHTML=[[n,'pessoas diferentes'],[imp,'importaram livros ('+pc(imp)+')'],[back,'voltaram em outro dia'],[B,'livros importados'],[H,'grifos importados']].map(function(x){return'<div class="k"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>'}).join('');
+ var fn=[['Abriram o app',n],['Importaram livros',imp],['Voltaram em outro dia',back]];
+ $('#fn').innerHTML=fn.map(function(x){return'<div class="r"><span>'+x[0]+'</span><div><i style="width:'+(n?Math.max(3,x[1]/n*100):3)+'%"></i></div><em>'+x[1]+'</em></div>'}).join('');
+ var D=[],now=new Date();for(var i=13;i>=0;i--){var d=new Date(now);d.setDate(now.getDate()-i);D.push(d)}
+ var dc=D.map(function(d){var k=d.toDateString(),s={};R.forEach(function(r){if(r.t.toDateString()===k)s[r.u]=1});return Object.keys(s).length}),mx=Math.max.apply(null,dc.concat([1]));
+ $('#dy').innerHTML=dc.map(function(v,i){return'<div style="height:'+Math.max(2,v/mx*100)+'%" title="'+D[i].toLocaleDateString('pt-BR')+': '+v+'"></div>'}).join('');
+ $('#dl').innerHTML=D.map(function(d){return'<span>'+d.getDate()+'</span>'}).join('');
+ var rf={};us.forEach(function(p){var o=rf[p.r]=rf[p.r]||{n:0,i:0};o.n++;o.i+=p.imp});
+ var ra=Object.keys(rf).sort(function(a,b){return rf[b].n-rf[a].n});
+ $('#rr').innerHTML=ra.length?'<table><tr><th>Link</th><th>Pessoas</th><th>Importaram</th></tr>'+ra.map(function(k){return'<tr><td>'+esc(k)+'</td><td>'+rf[k].n+'</td><td>'+rf[k].i+'</td></tr>'}).join('')+'</table>':'<div class="em">Sem dados ainda.</div>';
+ var ev={};R.forEach(function(r){ev[r.e]=(ev[r.e]||0)+1});bars($('#ev'),ev,function(k){return EN[k]||k});
+ var pa={},ld={};us.forEach(function(p){pa[p.c||'?']=(pa[p.c||'?']||0)+1;ld[p.l||'?']=(ld[p.l||'?']||0)+1});bars($('#pa'),pa,function(k){return PN[k]?PN[k]+' ('+k+')':k});bars($('#id'),ld,function(k){return({pt:'Português',en:'Inglês',es:'Espanhol'})[k]||k});
+ var rc=R.slice().sort(function(a,b){return b.t-a.t}).slice(0,15);
+ $('#rc').innerHTML='<tr><th>Quando</th><th>Pessoa</th><th>Link</th><th>Evento</th><th>Livros</th><th>Grifos</th><th>País</th></tr>'+(rc.map(function(r){return'<tr><td>'+r.t.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})+'</td><td>'+esc(r.u.slice(0,6))+'</td><td>'+esc(r.r)+'</td><td>'+esc(EN[r.e]||r.e)+'</td><td>'+(r.b||'')+'</td><td>'+(r.h||'')+'</td><td>'+esc(r.c)+'</td></tr>'}).join('')||'<tr><td class="em">Sem eventos ainda.</td></tr>');
+ $('#up').textContent='Atualizado às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}
+function show(on){$('#app').hidden=!on;$('#lg').hidden=!!on}
+$('#f').onsubmit=function(e){e.preventDefault();KEY=$('#k').value.trim();if(!KEY)return;s(KEY);$('#er').textContent='';show(1);load()};
+$('#rf').onclick=load;$('#ex').onclick=function(){s('');KEY='';$('#k').value='';show(0)};
+KEY=g();if(KEY){show(1);load()}else show(0);setInterval(function(){if(KEY&&!document.hidden)load()},60000);
+</script></body></html>
