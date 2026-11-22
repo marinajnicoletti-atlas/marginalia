@@ -468,6 +468,16 @@ body{padding-bottom:calc(38px + env(safe-area-inset-bottom,0px))}
 #bulk,#cvr{bottom:38px}
 #modal{padding-bottom:54px}
 @media(max-width:640px){body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))}#toast{bottom:calc(72px + env(safe-area-inset-bottom,0px))}#drw{bottom:56px}#drw.bookm{bottom:70px}#bulk,#cvr{bottom:56px}#modal{padding-bottom:72px}}
+/* Aprendizado: prévia travada */
+.apc.apcw{padding:0;cursor:default;gap:0}.apmain{display:flex;flex-direction:column;gap:6px;text-align:left;background:none;border:0;padding:16px 16px 8px;cursor:pointer;color:inherit;font:inherit;flex:1;width:100%}
+.apfoot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 16px 14px}.apfoot .soon{margin:0}
+.apint{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--bd);border-radius:999px;background:none;padding:4px 12px;font-size:13px;color:var(--ink);cursor:pointer;transition:border-color .2s,color .2s}.apint:hover{border-color:var(--acc);color:var(--acc)}.apint .ic{width:14px;height:14px}
+.aplk{border:1px dashed var(--bd);border-radius:12px;padding:18px 20px;margin-top:18px;background:var(--card)}
+.aplk p{margin:6px 0 10px}.aplk h4{margin:12px 0 4px;font-size:15px}.aplk ul{margin:4px 0 14px 18px;padding:0}.aplk li{margin:3px 0}
+.aplk .btn{display:inline-flex;align-items:center;gap:8px}.aplk .btn .ic{width:16px;height:16px}
+.aplb{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:3px 11px;border-radius:999px;background:var(--pl);color:var(--onpl)}.aplb .ic{width:13px;height:13px}
+.soon{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;margin-top:4px;font-size:11.5px;color:var(--mut)}.soon .ic{width:12px;height:12px}
+.apn{text-align:center;margin-top:26px}
 </style></head><body>
 <header><a class="logo" href="#">Marginália</a><div class="hs"><input id="hq" type="search" placeholder="Buscar livros, autores ou ideias…" aria-label="Buscar livros, autores ou ideias…"></div><button class="lk" data-a="rn">Sortear trecho</button><button class="lk" data-a="ap" aria-label="Aprendizado" title="Aprendizado"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg><span>Aprendizado</span></button><button class="gear" data-a="st" aria-label="Configurações" title="Configurações"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></header><input type="file" id="f" accept=".txt" hidden><input type="file" id="fk" webkitdirectory multiple hidden><aside id="drw" aria-label="Configurações"></aside><div id="dbk" hidden data-a="dx"></div>
 <main id="app"></main><div id="modal" hidden></div><div id="toast"></div>
@@ -1135,6 +1145,8 @@ sort:'<path d="M7 4v16"/><path d="M3 8l4-4 4 4"/><path d="M17 20V4"/><path d="M1
 panel:'<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="15" y1="3" x2="15" y2="21"/>',
 palette:'<circle cx="13.5" cy="6.5" r=".6"/><circle cx="17.5" cy="10.5" r=".6"/><circle cx="8.5" cy="7.5" r=".6"/><circle cx="6.5" cy="12.5" r=".6"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.83-.44-1.12-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67H16c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/>',
 send:'<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',
+lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+heart:'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
 refresh:'<polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>'};
 IC.bulb='<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/>';
 const I=n=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
@@ -1368,29 +1380,36 @@ function apRun(){const sub=apSub(),A=apS();
  if(!apKey())return '<h3>'+sub[1]+'</h3><p class="sm">Esta atividade usa IA. Cole sua chave da API da Anthropic; ela fica salva só neste navegador.</p><input type="password" id="apk" placeholder="sk-ant-…"><p><button class="btn" data-ap="key">Salvar e começar</button></p><p class="sm">Sem chave? Use sua conta do Claude no navegador:</p><p><button class="btn2" data-ap="cp">Copiar prompt para usar no claude.ai</button> <a class="lk" href="https://claude.ai/new" target="_blank" rel="noopener">Abrir claude.ai</a></p>';
  return '<h3>'+sub[1]+'</h3><div class="apmsgs">'+AP.msgs.slice(1).map(m=>'<div class="apm '+(m.role==='user'?'u':'')+'">'+apMd(m.content)+'</div>').join('')+(AP.busy?'<div class="apm sm">Pensando…</div>':'')+'</div>'+(AP.err?'<p class="sm" style="color:#c0392b">'+esc(AP.err)+'</p>':'')+'<div class="apin"><textarea id="api" rows="2" placeholder="Escreva sua resposta…"></textarea><button class="btn" data-ap="send">Enviar</button></div><p class="sm">As respostas partem dos seus grifos, não do livro completo, e podem incluir conhecimento complementar; confira nas fontes.</p><p class="sm"><button class="lk" data-ap="cp">Copiar prompt (claude.ai)</button> <button class="lk" data-ap="fin">Concluir atividade</button> <button class="lk" data-ap="key2">Trocar chave</button></p>'}
 function apDraw(){const el=$('#aprun');if(!el)return;el.innerHTML=apRun();const i=$('#api');if(i&&AP.draft){i.value=AP.draft;AP.draft=''}const m=document.querySelector('.apmsgs');m&&(m.scrollTop=m.scrollHeight)}
+const INTERESSE_URL='https://formsubmit.co/ajax/marina.nicoletti@alumni.usp.br',INTERESSE_MAIL='marina.nicoletti@alumni.usp.br';
+const apSoon=()=>'<div class="aplk apn"><span class="aplb">'+I('lock')+'Em breve</span><p>O Aprendizado está em desenvolvimento. Abra os cards para ver como cada atividade vai funcionar e conte se faz sentido para você.</p><button class="btn" data-ap="int" data-i="geral">'+I('heart')+'<span>Tenho interesse</span></button></div>';
+function apInterest(id){let nm='Aprendizado';for(const m of AM)for(const x of m[3])if(x[0]===id)nm=x[1];
+ const st=[1,2,3,4,5].map(i=>`<button type="button" class="st ist" data-n="${i}" aria-label="${i}/5">☆</button>`).join('');
+ modal(`<h3>Tenho interesse</h3><p class="sm">${esc(nm)}: conte se isso seria útil para você. Usaremos seu e-mail apenas para falar sobre esta funcionalidade.</p><label>Seu e-mail</label><input type="email" placeholder="voce@exemplo.com" autocomplete="email"><label>Sua nota para a ideia (1 a 5)</label><div class="er">${st}</div><input type="hidden" id="irv" value="0"><label>Comentário (opcional)</label><textarea rows="3" placeholder="O que você gostaria de ver nesta atividade?"></textarea><p class="sm">Prefere escrever direto? <a href="mailto:marina.nicoletti@alumni.usp.br">marina.nicoletti@alumni.usp.br</a></p>`,([em,nota,cm])=>{
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){toast('Digite um e-mail válido.');return false}
+  if(!+nota){toast('Escolha uma nota de 1 a 5.');return false}
+  apSendInterest({atividade:nm,email:em,nota:+nota,comentario:cm})});
+ const ok=document.querySelector('#modal [data-a=ok]');if(ok)ok.textContent='Enviar'}
+document.addEventListener('click',e=>{const x=e.target.closest&&e.target.closest('#modal .ist');if(!x)return;const v=document.getElementById('irv'),n=+x.dataset.n;v.value=+v.value===n?0:n;document.querySelectorAll('#modal .ist').forEach(y=>{y.textContent=+y.dataset.n<=+v.value?'★':'☆'})});
+async function apSendInterest(d){if(INTERESSE_URL){try{const r=await fetch(INTERESSE_URL,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:'Tenho interesse - Marginália ('+d.atividade+')',_replyto:d.email,_template:'table',_captcha:'false',atividade:d.atividade,email:d.email,nota:d.nota+'/5',comentario:d.comentario||'-'})}),j=await r.json().catch(()=>({}));if(r.ok&&String(j.success)!=='false'){toast('Obrigada! Seu interesse foi enviado.',4500);return}}catch(e){}}
+ const body='Atividade: '+d.atividade+'\nNota: '+d.nota+'/5\nE-mail: '+d.email+'\nComentário: '+(d.comentario||'-');
+ location.href='mailto:'+INTERESSE_MAIL+'?subject='+encodeURIComponent('Tenho interesse - Marginália ('+d.atividade+')')+'&body='+encodeURIComponent(body);
+ toast('Abrindo seu e-mail para enviar. Se nada abrir, escreva para '+INTERESSE_MAIL,7000)}
 function aprV(){const m=AM.find(x=>x[0]===AP.m),sub=apSub(),c=apS().cfg;
  let h='<div class="apw"><button class="lk" data-ap="back">← '+(m?'Voltar':'Biblioteca')+'</button>';
- if(!m)h+='<h2>Aprenda com o que você lê.</h2><p class="sm">Explore ideias, aprofunde conhecimentos, pratique idiomas e transforme seus livros em experiências de aprendizado.</p><div class="apg">'+AM.map(x=>'<button class="apc" data-ap="m" data-i="'+x[0]+'"><b>'+x[1]+'</b><span class="sm">'+x[2]+'</span><ul>'+x[3].map(s=>'<li>'+s[1]+'</li>').join('')+'</ul></button>').join('')+'</div>'+apHist();
- else if(!sub)h+='<h2>'+m[1]+'</h2><p class="sm">'+m[2]+'</p><div class="apg">'+m[3].map(s=>'<button class="apc" data-ap="s" data-i="'+s[0]+'"><b>'+s[1]+'</b><span class="sm">'+s[2]+'</span></button>').join('')+'</div>';
- else if(!AP.run){const f=sub[3],bo=(sel)=>'<option value="">Sem vínculo com uma obra</option>'+Object.values(S.books).sort((a,b)=>a.title.localeCompare(b.title)).map(b=>'<option value="'+b.id+'"'+(b.id===sel?' selected':'')+'>'+esc(b.title)+'</option>').join(''),
-  op=(k,L)=>'<select data-apc="'+k+'">'+L.map(x=>'<option'+(x===c[k]?' selected':'')+'>'+x+'</option>').join('')+'</select>';
-  h+='<h2>'+sub[1]+'</h2><p class="sm">'+sub[2]+'</p>';
-  if(f.includes('lang'))h+='<label>Idioma de aprendizado</label>'+op('lang',['Inglês','Português','Espanhol','Francês','Alemão','Italiano'])+'<label>Idioma de apoio (para explicações)</label>'+op('sup',['Português','Inglês','Espanhol','Francês','Alemão'])+'<label>Nível</label>'+op('lvl',['A1','A2','B1','B2','C1','C2','Não sei']);
-  if(f.includes('concept'))h+='<label>Conceito ou tema</label><input type="text" data-apc="concept" value="'+esc(c.concept)+'" placeholder="Ex.: estoicismo, hábito, liberdade">';
-  if(f.includes('book'))h+='<label>Livro de referência</label><select data-apc="book">'+bo(c.book)+'</select>';
-  if(f.includes('book2'))h+='<label>Segundo livro</label><select data-apc="book2">'+bo(c.book2)+'</select>';
-  if(f.includes('hl')&&S.books[c.book])h+='<label>Grifos como material (opcional; nenhum marcado = os primeiros 25)</label><div class="aphl">'+S.books[c.book].hl.slice(0,60).map(x=>'<label><input type="checkbox" data-apc="hl" value="'+x.id+'"'+((c.hl||[]).includes(x.id)?' checked':'')+'><span>'+esc(x.text.slice(0,110))+'</span></label>').join('')+'</div>';
-  h+='<p><button class="btn" data-ap="go">Iniciar</button></p>'}
- else h+='<div id="aprun">'+apRun()+'</div>';
+ if(!m)h+='<h2>Aprenda com o que você lê.</h2><p class="sm">Explore ideias, aprofunde conhecimentos, pratique idiomas e transforme seus livros em experiências de aprendizado.</p><div class="apg">'+AM.map(x=>'<button class="apc" data-ap="m" data-i="'+x[0]+'"><b>'+x[1]+'</b><span class="sm">'+x[2]+'</span><ul>'+x[3].map(s=>'<li>'+s[1]+'</li>').join('')+'</ul></button>').join('')+'</div>'+apSoon();
+ else if(!sub)h+='<h2>'+m[1]+'</h2><p class="sm">'+m[2]+'</p><div class="apg">'+m[3].map(s=>'<div class="apc apcw"><button type="button" class="apmain" data-ap="s" data-i="'+s[0]+'"><b>'+s[1]+'</b><span class="sm">'+s[2]+'</span></button><div class="apfoot"><span class="soon">'+I('lock')+'Em breve</span><button type="button" class="apint" data-ap="int" data-i="'+s[0]+'">'+I('heart')+'<span>Tenho interesse</span></button></div></div>').join('')+'</div>';
+ else{const f=sub[3],L=[['lang','Escolher o idioma de aprendizado e o seu nível'],['concept','Informar um conceito ou tema'],['book','Escolher um livro da sua estante'],['book2','Escolher um segundo livro'],['hl','Usar seus grifos como material']].filter(x=>f.includes(x[0]));
+  h+='<h2>'+sub[1]+'</h2><p class="sm">'+sub[2]+'</p><div class="aplk"><span class="aplb">'+I('lock')+'Em breve</span><p>Esta atividade ainda está em desenvolvimento. Mostramos aqui a ideia para você nos dizer se faria sentido no seu dia a dia.</p>'+(L.length?'<h4>O que você poderá fazer</h4><ul>'+L.map(x=>'<li>'+x[1]+'</li>').join('')+'</ul>':'')+'<button class="btn" data-ap="int" data-i="'+sub[0]+'">'+I('heart')+'<span>Tenho interesse</span></button></div>'}
+ 
  return h+'</div>'}
 function aprInit(){if(AP.run&&AP.kind==='chat'&&!AP.msgs.length&&apKey()&&!AP.busy)apSend('Vamos começar.')}
-function apPrep(sub){AP.hid='a'+Date.now();AP.s=sub[0];AP.run=1;AP.err='';AP.msgs=[];AP.busy=0;AP.kind=sub[0]==='d2'?'diary':/^b[13]$/.test(sub[0])?'fc':'chat';if(AP.kind==='fc')apDeck(sub[0])}
+function apPrep(sub){return;AP.hid='a'+Date.now();AP.s=sub[0];AP.run=1;AP.err='';AP.msgs=[];AP.busy=0;AP.kind=sub[0]==='d2'?'diary':/^b[13]$/.test(sub[0])?'fc':'chat';if(AP.kind==='fc')apDeck(sub[0])}
 function apStart(sub){apPrep(sub);render()}
 document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-ap]');if(!t||!$('#app').contains(t))return;const a=t.dataset.ap,A=apS();
  if(a==='back'){if(AP.run)AP.run=0;else if(AP.s)AP.s='';else if(AP.m)AP.m='';else{location.hash='';return}render();return}
  if(a==='m'){AP.m=t.dataset.i;render()}
- else if(a==='s'){const s=AM.find(x=>x[0]===AP.m)[3].find(x=>x[0]===t.dataset.i);AP.s=s[0];s[3].length?render():apStart(s)}
- else if(a==='go')apStart(apSub())
+ else if(a==='s'){const s=AM.find(x=>x[0]===AP.m)[3].find(x=>x[0]===t.dataset.i);AP.s=s[0];render()}
+ else if(a==='int')apInterest(t.dataset.i)
  else if(a==='key'){const v=($('#apk').value||'').trim();if(v){try{localStorage.mg_akey=v}catch(x){}render()}}
  else if(a==='key2'){try{localStorage.removeItem('mg_akey')}catch(x){}render()}
  else if(a==='send'){const i=$('#api'),v=i&&i.value.trim();if(v)apSend(v)}
