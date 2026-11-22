@@ -29,6 +29,7 @@ button,input{font:inherit;color:inherit}button{background:var(--card);border:1px
 <div class="g"><section class="p"><h2>Do clique ao uso</h2><div id="fn"></div></section><section class="p"><h2>Pessoas por dia (14 dias)</h2><div class="days" id="dy"></div><div class="dl" id="dl"></div></section></div>
 <div class="g"><section class="p"><h2>Por link (ref)</h2><div id="rr"></div></section><section class="p"><h2>O que mais usam</h2><div id="ev"></div></section></div>
 <div class="g"><section class="p"><h2>Países (estimado)</h2><div id="pa"></div></section><section class="p"><h2>Idiomas</h2><div id="id"></div></section></div>
+<section class="p" style="margin-bottom:16px"><h2>Interesse no Aprendizado</h2><div id="in"></div></section>
 <section class="p"><h2>Atividade recente</h2><div class="tw"><table id="rc"></table></div></section>
 <p class="sub">Contagens anônimas. Nada de títulos ou trechos. Sua própria navegação (?eu=1) não entra. País vem do fuso horário do navegador.</p>
 </div></main>
@@ -38,13 +39,13 @@ var $=function(s){return document.querySelector(s)},KEY='';
 function g(){try{return localStorage.getItem('mg_pk')||''}catch(e){return ''}}
 function s(v){try{v?localStorage.setItem('mg_pk',v):localStorage.removeItem('mg_pk')}catch(e){}}
 function esc(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var EN={visit:'Visitas',import_clippings:'Importou My Clippings',covers_import:'Importou capas',manual_book:'Livro manual',draw:'Sorteou trecho',aprendizado:'Aprendizado',club_code:'Código do clube'};
+var EN={visit:'Visitas',import_clippings:'Importou My Clippings',covers_import:'Importou capas',manual_book:'Livro manual',draw:'Sorteou trecho',aprendizado:'Aprendizado',club_code:'Código do clube',interest:'Tenho interesse'};
 var PN={BR:'Brasil',PT:'Portugal',US:'EUA',ES:'Espanha',GB:'Reino Unido',FR:'França',DE:'Alemanha',IT:'Itália',AR:'Argentina',CO:'Colômbia',MX:'México',CL:'Chile',PE:'Peru',UY:'Uruguai',CA:'Canadá',AO:'Angola',MZ:'Moçambique',JP:'Japão'};
 function bars(el,m,lab){var a=Object.keys(m).map(function(k){return[k,m[k]]}).sort(function(x,y){return y[1]-x[1]}).slice(0,8);if(!a.length){el.innerHTML='<div class="em">Sem dados ainda.</div>';return}var mx=a[0][1];
  el.innerHTML=a.map(function(x){return'<div class="r"><span title="'+esc(lab?lab(x[0]):x[0])+'">'+esc(lab?lab(x[0]):x[0])+'</span><div><i style="width:'+Math.max(3,x[1]/mx*100)+'%"></i></div><em>'+x[1]+'</em></div>'}).join('')}
 function load(){$('#up').textContent='Atualizando…';
  fetch(EP+'?k='+encodeURIComponent(KEY)).then(function(r){return r.text()}).then(function(t){var j;try{j=JSON.parse(t)}catch(e){s('');KEY='';show(0);$('#er').textContent='Chave incorreta.';return}render(j.rows||[])}).catch(function(){$('#up').textContent='Não foi possível carregar. Tente atualizar.'})}
-function render(R){R=R.filter(function(r){return r[1]!=='teste'}).map(function(r){return{t:new Date(r[0]),u:r[1],r:r[2]||'(sem link)',e:r[3],b:+r[4]||0,h:+r[5]||0,c:r[6]||'?',l:(r[7]||'?').split('-')[0].toLowerCase()}});
+function render(R){R=R.filter(function(r){return r[1]!=='teste'}).map(function(r){return{x:r[9]||'',t:new Date(r[0]),u:r[1],r:r[2]||'(sem link)',e:r[3],b:+r[4]||0,h:+r[5]||0,c:r[6]||'?',l:(r[7]||'?').split('-')[0].toLowerCase()}});
  var P={};R.forEach(function(r){(P[r.u]=P[r.u]||{u:r.u,r:r.r,days:{},imp:0,first:r.t}).days[r.t.toDateString()]=1;var p=P[r.u];if(r.e==='import_clippings')p.imp=1;if(r.t<p.first){p.first=r.t;p.r=r.r}if(r.c!=='?')p.c=r.c;p.l=r.l});
  var us=Object.keys(P).map(function(k){return P[k]}),n=us.length,imp=us.filter(function(p){return p.imp}).length,back=us.filter(function(p){return Object.keys(p.days).length>1}).length,
  B=0,H=0;R.forEach(function(r){if(r.e==='import_clippings'){B+=r.b;H+=r.h}});
@@ -61,6 +62,8 @@ function render(R){R=R.filter(function(r){return r[1]!=='teste'}).map(function(r
  $('#rr').innerHTML=ra.length?'<table><tr><th>Link</th><th>Pessoas</th><th>Importaram</th></tr>'+ra.map(function(k){return'<tr><td>'+esc(k)+'</td><td>'+rf[k].n+'</td><td>'+rf[k].i+'</td></tr>'}).join('')+'</table>':'<div class="em">Sem dados ainda.</div>';
  var ev={};R.forEach(function(r){ev[r.e]=(ev[r.e]||0)+1});bars($('#ev'),ev,function(k){return EN[k]||k});
  var pa={},ld={};us.forEach(function(p){pa[p.c||'?']=(pa[p.c||'?']||0)+1;ld[p.l||'?']=(ld[p.l||'?']||0)+1});bars($('#pa'),pa,function(k){return PN[k]?PN[k]+' ('+k+')':k});bars($('#id'),ld,function(k){return({pt:'Português',en:'Inglês',es:'Espanhol'})[k]||k});
+var IN=R.filter(function(r){return r.e==='interest'}),ia={},sm=0;IN.forEach(function(r){var q=String(r.x).split(' | '),nm=q[0]||'?',nt=+q[1]||0;sm+=nt;var o=ia[nm]=ia[nm]||{n:0,s:0};o.n++;o.s+=nt});
+ $('#in').innerHTML=IN.length?'<p class="em">'+IN.length+' resposta'+(IN.length>1?'s':'')+', nota média '+(sm/IN.length).toFixed(1).replace('.',',')+'/5. E-mails e comentários chegam no seu e-mail, não aparecem aqui.</p><table><tr><th>Atividade</th><th>Respostas</th><th>Nota média</th></tr>'+Object.keys(ia).sort(function(a,b){return ia[b].n-ia[a].n}).map(function(k){return'<tr><td>'+esc(k)+'</td><td>'+ia[k].n+'</td><td>'+(ia[k].s/ia[k].n).toFixed(1).replace('.',',')+'</td></tr>'}).join('')+'</table>':'<div class="em">Ninguém clicou em "Tenho interesse" ainda.</div>';
  var rc=R.slice().sort(function(a,b){return b.t-a.t}).slice(0,15);
  $('#rc').innerHTML='<tr><th>Quando</th><th>Pessoa</th><th>Link</th><th>Evento</th><th>Livros</th><th>Grifos</th><th>País</th></tr>'+(rc.map(function(r){return'<tr><td>'+r.t.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})+'</td><td>'+esc(r.u.slice(0,6))+'</td><td>'+esc(r.r)+'</td><td>'+esc(EN[r.e]||r.e)+'</td><td>'+(r.b||'')+'</td><td>'+(r.h||'')+'</td><td>'+esc(r.c)+'</td></tr>'}).join('')||'<tr><td class="em">Sem eventos ainda.</td></tr>');
  $('#up').textContent='Atualizado às '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}

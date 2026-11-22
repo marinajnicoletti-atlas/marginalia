@@ -1387,6 +1387,7 @@ function apInterest(id){let nm='Aprendizado';for(const m of AM)for(const x of m[
  modal(`<h3>Tenho interesse</h3><p class="sm">${esc(nm)}: conte se isso seria útil para você. Usaremos seu e-mail apenas para falar sobre esta funcionalidade.</p><label>Seu e-mail</label><input type="email" placeholder="voce@exemplo.com" autocomplete="email"><label>Sua nota para a ideia (1 a 5)</label><div class="er">${st}</div><input type="hidden" id="irv" value="0"><label>Comentário (opcional)</label><textarea rows="3" placeholder="O que você gostaria de ver nesta atividade?"></textarea><p class="sm">Prefere escrever direto? <a href="mailto:marina.nicoletti@alumni.usp.br">marina.nicoletti@alumni.usp.br</a></p>`,([em,nota,cm])=>{
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){toast('Digite um e-mail válido.');return false}
   if(!+nota){toast('Escolha uma nota de 1 a 5.');return false}
+  TRK.ev('interest',{x:nm+' | '+(+nota)});
   apSendInterest({atividade:nm,email:em,nota:+nota,comentario:cm})});
  const ok=document.querySelector('#modal [data-a=ok]');if(ok)ok.textContent='Enviar'}
 document.addEventListener('click',e=>{const x=e.target.closest&&e.target.closest('#modal .ist');if(!x)return;const v=document.getElementById('irv'),n=+x.dataset.n;v.value=+v.value===n?0:n;document.querySelectorAll('#modal .ist').forEach(y=>{y.textContent=+y.dataset.n<=+v.value?'★':'☆'})});
