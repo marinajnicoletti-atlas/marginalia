@@ -478,11 +478,117 @@ body{padding-bottom:calc(38px + env(safe-area-inset-bottom,0px))}
 .aplb{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:3px 11px;border-radius:999px;background:var(--pl);color:var(--onpl)}.aplb .ic{width:13px;height:13px}
 .soon{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;margin-top:4px;font-size:11.5px;color:var(--mut)}.soon .ic{width:12px;height:12px}
 .apn{text-align:center;margin-top:26px}
+/* Aprendizado: blocos coloridos */
+.apw.wide{max-width:1080px}
+.apgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:22px}
+.apb{--c:hsl(var(--h) 68% 52%);position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;text-align:left;padding:20px 18px 16px;border-radius:20px;border:1.5px solid color-mix(in srgb,var(--c) 38%,var(--bd));background:linear-gradient(165deg,color-mix(in srgb,var(--c) 16%,var(--card)),var(--card) 62%);color:var(--ink);cursor:pointer;font:inherit;transition:transform .2s,box-shadow .2s,border-color .2s}
+.apb:hover{transform:translateY(-3px);box-shadow:0 12px 26px color-mix(in srgb,var(--c) 28%,transparent);border-color:var(--c)}
+.apbi{display:inline-grid;place-items:center;flex:none;width:54px;height:54px;border-radius:16px;background:hsl(var(--h) 68% 52%);color:#fff;box-shadow:0 6px 14px color-mix(in srgb,hsl(var(--h) 68% 52%) 35%,transparent)}.apbi .ic{width:28px;height:28px}
+.apq{margin-top:4px;font-size:12.5px;font-weight:600;color:color-mix(in srgb,var(--c) 75%,var(--ink))}
+.apb b{font:600 20px/1.15 Fraunces,Georgia,serif}
+.apd{font-size:13.5px;line-height:1.4;color:var(--mut)}
+.apb ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;width:100%}.apb li{display:flex;gap:8px;align-items:center;font-size:13px;line-height:1.3}.apb li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--c);flex:none}
+.apgo{margin-top:auto;padding-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:color-mix(in srgb,var(--c) 75%,var(--ink))}.apgo .ic{width:16px;height:16px;transition:transform .2s}.apb:hover .apgo .ic{transform:translateX(3px)}
+.apch{display:flex;align-items:center;gap:12px}.apch .apbi{width:42px;height:42px;border-radius:12px}.apch .apbi .ic{width:22px;height:22px}
+.apc.apcw{border-top:3px solid hsl(var(--h,28) 68% 52%)}
+@media(max-width:860px){.apgrid{grid-template-columns:1fr}}
+/* ---------- Estatísticas ---------- */
+.stw{max-width:1080px;margin:0 auto}
+.stt1{display:flex;align-items:center;gap:12px;margin:0;font-size:30px;transition:font-size .2s}
+.stw.na .sbar,.stw.na .dseg,.stw.na .stob i,.stw.na .goal .gr{animation:none}.stt1 .ic{width:28px;height:28px;color:var(--acc)}
+.stkr{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:16px}
+.stk{position:relative;display:grid;gap:2px;padding:16px 18px;border:1px solid var(--bd);border-radius:16px;background:var(--card)}
+.stki{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:color-mix(in srgb,var(--acc) 16%,transparent);color:var(--acc);margin-bottom:6px}.stki .ic{width:18px;height:18px}
+.stk b{font:600 32px/1.05 Fraunces,Georgia,serif;font-variant-numeric:tabular-nums}.stl{font-size:13.5px;color:var(--ink)}.stk small{font-size:12px;color:var(--mut)}
+.stgr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.stc{border:1px solid var(--bd);border-radius:16px;background:var(--card);padding:16px 18px 18px;min-width:0}
+.stc2{grid-column:span 2}.stc3{grid-column:1/-1}
+.stch{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.stch h3{display:flex;align-items:center;gap:8px;margin:0;font-size:17px;color:var(--ink)}.stch h3 .ic{width:18px;height:18px;color:var(--acc)}
+.stto{display:flex;gap:8px;flex-wrap:wrap}
+.stt{display:inline-flex;border:1px solid var(--bd);border-radius:999px;padding:2px;gap:2px}.stt button{font:inherit;font-size:13px;border:0;background:none;color:var(--mut);padding:5px 15px;border-radius:999px;cursor:pointer;white-space:nowrap}.stt button.on{background:var(--pl);color:var(--onpl)}
+.sbars{display:flex;align-items:stretch;gap:8px;height:210px}
+.sbc{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:4px}
+.sbt{flex:1;width:100%;display:flex;align-items:flex-end;justify-content:center}
+.sbar{position:relative;display:block;width:min(34px,78%);border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,var(--acc),color-mix(in srgb,var(--acc) 55%,var(--pl)));transform-origin:bottom;animation:sgrow .6s cubic-bezier(.22,.7,.2,1) calc(var(--i,0)*35ms) backwards;transition:filter .2s}
+.sbar:hover{filter:brightness(1.12)}
+.sbv{font-size:12px;color:var(--mut);height:15px}.sbl{font-size:11.5px;color:var(--mut);white-space:nowrap}
+[data-tip]{position:relative}
+.sbar[data-tip]:hover::after,.hm[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:var(--bg);font-size:12px;padding:4px 8px;border-radius:6px;z-index:20;pointer-events:none}
+@keyframes sgrow{from{transform:scaleY(0)}}
+.stn{margin:10px 0 0;font-size:12px}
+.stdn{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.dwrap{position:relative;width:168px;flex:none}.dwrap svg{width:100%;display:block}
+.dctr{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none}.dctr b{font:600 30px/1 Fraunces,Georgia,serif}.dctr span{font-size:12px;color:var(--mut);max-width:90px}
+.dseg{animation:ddraw .9s ease calc(var(--i,0)*70ms) backwards;transition:opacity .2s,stroke-width .2s}.dseg.dim{opacity:.3}
+@keyframes ddraw{from{stroke-dasharray:0 276}}
+.dlg{list-style:none;margin:0;padding:0;flex:1;min-width:150px;display:grid;gap:7px}
+.dlg li{display:grid;grid-template-columns:12px 1fr auto auto;align-items:center;gap:8px;font-size:13.5px;cursor:default}.dlg i{width:11px;height:11px;border-radius:3px}.dlg b{font-weight:600}.dlg small{color:var(--mut);width:34px;text-align:right}
+.hmw{overflow-x:auto;padding-bottom:6px}.hml{display:grid;grid-template-columns:repeat(53,13px);gap:3px;font-size:11px;color:var(--mut);height:16px;margin-bottom:2px}
+.hmg{display:grid;grid-template-rows:repeat(7,13px);grid-auto-flow:column;grid-auto-columns:13px;gap:3px;width:max-content}
+.hm{display:block;width:13px;height:13px;border-radius:3px}.hm0{background:color-mix(in srgb,var(--mut) 15%,transparent)}.hm1{background:color-mix(in srgb,var(--acc) 30%,transparent)}.hm2{background:color-mix(in srgb,var(--acc) 55%,transparent)}.hm3{background:color-mix(in srgb,var(--acc) 80%,transparent)}.hm4{background:var(--acc)}.hmx{background:none}
+.hmlg{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--mut)}.hmlg .hm{width:12px;height:12px}
+.tod{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.tod div{display:grid;gap:1px;text-align:center;padding:8px 4px;border-radius:12px;border:1px solid var(--bd)}.tod div.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent)}.tod b{font:600 19px Fraunces,Georgia,serif}.tod span{font-size:11.5px;color:var(--mut)}
+.wdb{display:flex;gap:6px;height:96px}.wdc{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}.wdt{flex:1;width:100%;display:flex;align-items:flex-end;justify-content:center}.wdc span{font-size:11px;color:var(--mut)}.wdc .sbar{width:min(22px,70%)}
+.stop{list-style:none;margin:0;padding:0;display:grid;gap:10px}.stop a{display:grid;grid-template-columns:minmax(0,1fr) 90px auto;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-size:13.5px}.stot{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stob{height:8px;border-radius:99px;background:color-mix(in srgb,var(--mut) 15%,transparent);overflow:hidden}.stob i{display:block;height:100%;border-radius:99px;background:var(--acc);transform-origin:left;animation:swid .7s cubic-bezier(.22,.7,.2,1) backwards}.stop a:hover .stot{color:var(--acc)}
+@keyframes swid{from{transform:scaleX(0)}}
+.stq blockquote{margin:0 0 10px;font-size:17px;line-height:1.5}.stqs{font-size:13px;color:var(--acc);text-decoration:none}.stqs:hover{text-decoration:underline}
+.stqb{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:3px 10px}.stqb .ic{width:14px;height:14px}
+.goal{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.goal svg{width:92px;flex:none}.goal .gr{transition:stroke-dasharray .6s ease;animation:ggrow .9s ease backwards}@keyframes ggrow{from{stroke-dasharray:0 214}}
+.goal b{display:block;font:600 19px Fraunces,Georgia,serif;margin-bottom:6px}.goal input{width:64px;padding:4px 8px;font-size:14px;margin-left:4px}
+.stin{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.stin div{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--bd);border-radius:14px}.stin p{margin:2px 0 0;font-size:14px;line-height:1.4}.stin .stki{margin:0;flex:none}
+.sbl em{font-style:normal}
+@media(max-width:560px){.stkr{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stk{padding:12px 14px}.stk b{font-size:26px}.sbl em{display:none}.sbars{gap:5px}.stdn{justify-content:center}}
+@media(max-width:860px){.stgr{grid-template-columns:1fr}.stc2,.stc3{grid-column:auto}.sbars{height:170px}.sbl{font-size:10px}.stt1{font-size:24px}}
+.sth{position:sticky;top:calc(var(--hh,64px) + env(safe-area-inset-top,0px));z-index:7;display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap;margin:0 -14px 14px;padding:8px 14px;border-bottom:1px solid transparent;transition:background .2s,box-shadow .2s}
+.sth.stuck{background:color-mix(in srgb,var(--bg) 84%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom-color:var(--bd);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.sth.stuck .stt1{font-size:20px}.sth.stuck .stt1 .ic{width:20px;height:20px}
+.stf{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-left:auto;max-width:100%}
+.fdw{position:relative}
+.fdt{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;white-space:nowrap;padding:7px 16px;border:1px solid var(--bd);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer;transition:border-color .2s}
+.fdt:hover,.fdt.open{border-color:var(--acc)}.fdt .ic{width:15px;height:15px;color:var(--acc)}
+.fdt i{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-top:-3px;transition:transform .2s}.fdt.open i{transform:rotate(-135deg);margin-top:3px}
+.fdd{position:absolute;top:calc(100% + 8px);right:0;z-index:30;display:flex;width:400px;max-width:calc(100vw - 28px);background:var(--card);border:1px solid var(--bd);border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.22);overflow:hidden;animation:fdin .18s ease;text-align:left}
+@keyframes fdin{from{opacity:0;transform:translateY(-4px)}}
+.fdy{flex:none;width:160px;padding:6px;border-right:1px solid var(--bd);display:flex;flex-direction:column;gap:2px;max-height:340px;overflow:auto}
+.fdy>.fdo,.fdr{flex:none}
+.fdr{display:flex;align-items:center;border-radius:8px}.fdr.act{background:color-mix(in srgb,var(--acc) 13%,transparent)}
+.fdo{flex:1;display:flex;align-items:center;gap:9px;font:inherit;font-size:13.5px;text-align:left;background:none;border:0;color:var(--ink);padding:8px;border-radius:8px;cursor:pointer;white-space:nowrap}.fdo:hover{background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.fdc{font:inherit;background:none;border:0;color:var(--mut);padding:6px 10px;cursor:pointer;font-size:17px;line-height:1}.fdc:hover{color:var(--acc)}
+.ck{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--mut);flex:none;position:relative;box-sizing:border-box}
+.ck.all{background:var(--acc);border-color:var(--acc)}.ck.all::after{content:'';position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ck.part{border-color:var(--acc)}.ck.part::after{content:'';position:absolute;left:2.5px;top:5.5px;width:8px;height:2px;background:var(--acc)}
+.fdm{flex:1;min-width:0;padding:8px;max-height:340px;overflow:auto}
+.fdmh{display:flex;align-items:center;gap:6px;margin:0 0 6px;padding:0 4px}.fdmh b{margin-right:auto;font:600 16px Fraunces,Georgia,serif}.fdmh button{font:inherit;font-size:12px;background:none;border:0;color:var(--acc);cursor:pointer;padding:2px 4px}.fdmh button:hover{text-decoration:underline}
+.fdml{display:grid;grid-template-columns:1fr 1fr;gap:1px 4px}
+.fmo{display:flex;align-items:center;gap:9px;font:inherit;font-size:13.5px;text-align:left;background:none;border:0;color:var(--ink);padding:6px;border-radius:8px;cursor:pointer}.fmo:hover{background:color-mix(in srgb,var(--acc) 10%,transparent)}.fmo.nd{opacity:.5}
+.fch{display:flex;gap:6px;max-width:100%;overflow-x:auto;padding:1px 2px}
+.fcc{display:inline-flex;align-items:center;gap:2px;white-space:nowrap;font-size:12.5px;padding:3px 3px 3px 11px;border-radius:999px;background:var(--pl);color:var(--onpl)}.fcc button{font:inherit;background:none;border:0;color:inherit;opacity:.8;cursor:pointer;padding:0 7px;font-size:14px}.fcc button:hover{opacity:1}
+.hmy{display:flex;gap:10px;align-items:flex-start;margin-top:6px}.hmy>b{font-size:13px;color:var(--mut);width:36px;flex:none;padding-top:20px}.hmy .hmw{flex:1;min-width:0}
+.stf select{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--bd);border-radius:999px;background:var(--card);color:var(--ink);max-width:190px}
+@media(max-width:560px){.fdm{width:200px}.stt1{font-size:22px}.sth.stuck .stt1 span{display:none}.stf{width:100%;align-items:flex-end}.fdd{width:calc(100vw - 28px)}.fdy{width:118px}}
+@media(prefers-reduced-motion:reduce){.sbar,.dseg,.stob i,.goal .gr{animation:none}}
+.stg .goal{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.stg .gring{position:relative;width:128px;flex:none}.stg .gring svg{width:100%;display:block}
+.gpc{position:absolute;inset:0;display:grid;place-items:center}.gpc b{font:600 28px/1 Fraunces,Georgia,serif}
+.gtx{display:grid;gap:3px}.stg .gtx b{display:block;font:600 18px Fraunces,Georgia,serif;margin:0}.gup{font-size:13px;font-weight:600;color:var(--acc)}
+.gcw{position:relative;padding:24px 0 42px}
+.gcb{display:flex;gap:8px;align-items:flex-end;height:190px}
+.gcc{position:relative;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.gcc .sbar{width:min(40px,78%)}.gcc.hit .sbar{background:linear-gradient(180deg,hsl(150 52% 46%),hsl(150 52% 32%))}
+.gcl{position:absolute;top:calc(100% + 6px);font-size:11.5px;color:var(--mut);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:grid;text-align:center;line-height:1.3}.gcl small{font-size:10.5px;opacity:.8}
+.gln{position:absolute;left:0;right:0;border-top:2px dashed var(--pl);pointer-events:none}.gln span{position:absolute;right:0;top:-21px;font-size:12px;background:var(--card);padding:0 5px;color:var(--ink);border-radius:6px}
+.glg{display:flex;gap:14px;font-size:12px;color:var(--mut);margin-left:auto}.glg span{display:inline-flex;align-items:center;gap:6px}.glg .lb{width:10px;height:10px;border-radius:3px;background:var(--acc)}.glg .ll{width:16px;border-top:2px dashed var(--pl)}
+.gtk{position:absolute;left:-4px;right:-4px;height:0;border-top:2px dashed var(--pl);pointer-events:none}.gtk::after{content:'';position:absolute;left:50%;top:-5px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--pl)}
+.gtabs{display:inline-flex;border:1px solid var(--bd);border-radius:999px;padding:2px;margin:6px 0 10px}.gtabs button{font:inherit;font-size:13px;border:0;background:none;color:var(--mut);padding:5px 20px;border-radius:999px;cursor:pointer}.gtabs button.on{background:var(--pl);color:var(--onpl)}
+#gmod{max-height:50vh;overflow:auto;padding-right:4px}.gtb{width:100%;border-collapse:collapse;font-size:14px}.gtb th{font-size:12px;font-weight:600;color:var(--mut);text-align:left;padding:4px 6px}.gtb td{padding:5px 6px;border-top:1px solid var(--bd)}.gtb td:nth-child(2){color:var(--mut);width:64px}.gtb input{width:88px;padding:5px 8px}.gdf td{font-size:13px;color:var(--mut)}.gmh{margin-bottom:8px}.gmh select{width:auto;min-width:130px;font:inherit;padding:5px 12px;border:1px solid var(--bd);border-radius:999px;background:var(--card);color:var(--ink)}
+.fdd{width:auto;min-width:190px}.fdm{width:240px}
+.stc.stg{display:flex;flex-direction:column}.stg .goal{flex:1;justify-content:center}
 </style></head><body>
-<header><a class="logo" href="#">Marginália</a><div class="hs"><input id="hq" type="search" placeholder="Buscar livros, autores ou ideias…" aria-label="Buscar livros, autores ou ideias…"></div><button class="lk" data-a="rn">Sortear trecho</button><button class="lk" data-a="ap" aria-label="Aprendizado" title="Aprendizado"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg><span>Aprendizado</span></button><button class="gear" data-a="st" aria-label="Configurações" title="Configurações"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></header><input type="file" id="f" accept=".txt" hidden><input type="file" id="fk" webkitdirectory multiple hidden><aside id="drw" aria-label="Configurações"></aside><div id="dbk" hidden data-a="dx"></div>
+<header><a class="logo" href="#">Marginália</a><div class="hs"><input id="hq" type="search" placeholder="Buscar livros, autores ou ideias…" aria-label="Buscar livros, autores ou ideias…"></div><button class="lk" data-a="rn">Sortear trecho</button><button class="lk" data-a="stt" aria-label="Estatísticas" title="Estatísticas"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Estatísticas</span></button><button class="lk" data-a="ap" aria-label="Aprendizado" title="Aprendizado"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg><span>Aprendizado</span></button><button class="gear" data-a="st" aria-label="Configurações" title="Configurações"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></header><input type="file" id="f" accept=".txt" hidden><input type="file" id="fk" webkitdirectory multiple hidden><aside id="drw" aria-label="Configurações"></aside><div id="dbk" hidden data-a="dx"></div>
 <main id="app"></main><div id="modal" hidden></div><div id="toast"></div>
 <script>
-var __s=(function(){var t=String.fromCharCode(86,101,114,115,227,111,32,116,101,115,116,101,32,64,77,97,114,105,110,97,78,105,99,111,108,101,116,116,105),CK=2347504571,host,root,bad=0,lk=0,ts=[];
+var __s=(function(){var t=String.fromCharCode(84,101,115,116,32,64,77,97,114,105,110,97,78,105,99,111,108,101,116,116,105),CK=3137241504,host,root,bad=0,lk=0,ts=[];
 function h(z){var x=5381;for(var i=0;i<z.length;i++)x=(x*33^z.charCodeAt(i))>>>0;return x}
 function svg(){var v="<svg xmlns='http://www.w3.org/2000/svg' width='400' height='250'><text x='200' y='130' text-anchor='middle' transform='rotate(-24 200 125)' font-family='Arial,sans-serif' font-weight='700' font-size='23' paint-order='stroke' stroke='#ffffff' stroke-width='4' stroke-linejoin='round' fill='#3a2a1a'>"+t+"</text></svg>";return 'url("data:image/svg+xml,'+encodeURIComponent(v)+'")'}
 function build(){try{if(host&&host.parentNode)host.parentNode.removeChild(host)}catch(e){}
@@ -561,7 +667,7 @@ const D={en:{},es:{}};[
 ['Importar pasta do Kindle','Import Kindle folder','Importar carpeta del Kindle'],['Selecione a pasta raiz do Kindle para trazer as capas dos seus livros.','Select your Kindle’s root folder to bring in your book covers.','Selecciona la carpeta raíz del Kindle para traer las portadas de tus libros.'],['{n} capas importadas do Kindle','{n} covers imported from Kindle','{n} portadas importadas del Kindle'],
 ['Importar capas e gêneros','Import covers & genres','Importar portadas y géneros'],['Conecte o Kindle ao computador e arraste a pasta dele (a raiz, com documents e system) para cá, cole com Ctrl+V ou escolha a pasta.','Connect your Kindle to your computer and drag its folder (the root, with documents and system) here, paste with Ctrl+V or choose the folder.','Conecta el Kindle al ordenador y arrastra su carpeta (la raíz, con documents y system) aquí, pégala con Ctrl+V o elige la carpeta.'],['Escolher pasta','Choose folder','Elegir carpeta'],['Arraste a pasta do Kindle aqui','Drag the Kindle folder here','Arrastra la carpeta del Kindle aquí'],['Buscar online os que faltam','Search online for the rest','Buscar en línea los que faltan'],['Lendo a pasta do Kindle…','Reading the Kindle folder…','Leyendo la carpeta del Kindle…'],['Nenhuma capa encontrada. Escolha a pasta raiz do Kindle.','No covers found. Choose the Kindle’s root folder.','No se encontraron portadas. Elige la carpeta raíz del Kindle.'],
 ['Sortear com filtros','Draw with filters','Sortear con filtros'],['Aleatório','Random','Aleatorio'],['Qualquer gênero','Any genre','Cualquier género']
-,['Ambiente','Atmosphere','Ambiente'],['Clássica','Classic','Clásica'],['Biblioteca antiga','Old library','Biblioteca antigua'],['Moderna','Modern','Moderna'],['Criativa','Creative','Creativa'],['Papel e madeira quente','Paper and warm wood','Papel y madera cálida'],['Mogno, latão e pergaminho','Mahogany, brass and parchment','Caoba, latón y pergamino'],['Limpa, plana e sóbria','Clean, flat and sober','Limpia, plana y sobria'],['Cores vivas e contornos fortes','Bright colors and bold outlines','Colores vivos y contornos fuertes'],['Voltar ao topo','Back to top','Volver arriba'],['Editar informações do livro','Edit book details','Editar datos del libro'],['Editar','Edit','Editar'],['Tags (separadas por vírgula)','Tags (comma-separated)','Etiquetas (separadas por comas)'],['Título','Title','Título'],['Autor','Author','Autor'],['Avaliação','Rating','Valoración'],['Sincronizar','Sync','Sincronizar'],['1 pergunta','1 question','1 pregunta'],['{n} perguntas','{n} questions','{n} preguntas'],['Favoritos','Favorites','Favoritos'],['Mais ações','More actions','Más acciones'],['Com filtros','With filters','Con filtros'],['Qualquer trecho da biblioteca','Any passage from your library','Cualquier fragmento de la biblioteca'],['Tema, livro ou gênero','Theme, book or genre','Tema, libro o género'],['Alterar opção','Change option','Cambiar opción'],['Voltar','Back','Volver'],['Estilo das configurações','Settings style','Estilo de los ajustes'],['Livro (folhear)','Book (page turn)','Libro (pasar páginas)'],['Painel','Panel','Panel'],
+,["Estatísticas","Statistics","Estadísticas"],["Tudo","All time","Todo"],["Todos","All","Todos"],["Meta","Goal","Meta"],["Lidos","Read","Leídos"],["Padrão (anos sem meta)","Default (years without a goal)","Predeterminada (años sin meta)"],["Deixe em branco para usar o padrão. Nos meses, o padrão é a meta do ano dividida por 12.","Leave blank to use the default. For months, the default is the yearly goal divided by 12.","Déjalo en blanco para usar la predeterminada. En los meses, es la meta del año dividida por 12."],["Defina uma meta de livros para cada ano ou mês. Contamos um livro no período em que você grifou algo nele.","Set a book goal for each year or month. A book counts in the period you highlighted something in it.","Define una meta de libros para cada año o mes. Un libro cuenta en el período en que subrayaste algo."],["Definir meta","Set goal","Definir meta"],["Meta anual","Yearly goal","Meta anual"],["Meta mensal","Monthly goal","Meta mensual"],["+{n}% acima da meta","+{n}% above goal","+{n}% sobre la meta"],["Meta por ano (livros)","Goal per year (books)","Meta por año (libros)"],["Meta por mês (livros)","Goal per month (books)","Meta por mes (libros)"],["Deixe em branco para usar a meta anual dividida por 12.","Leave blank to use the yearly goal divided by 12.","Déjalo en blanco para usar la meta anual dividida por 12."],["Defina quantos livros você quer ler por ano e por mês. Contamos um livro no período em que você grifou algo nele.","Set how many books you want to read per year and per month. A book counts in the period you highlighted something in it.","Define cuántos libros quieres leer por año y por mes. Un libro cuenta en el período en que subrayaste algo."],["Metas de leitura","Reading goals","Metas de lectura"],["Digite uma meta anual válida.","Enter a valid yearly goal.","Escribe una meta anual válida."],["Período","Period","Período"],["1 mês selecionado","1 month selected","1 mes seleccionado"],["{n} meses selecionados","{n} months selected","{n} meses seleccionados"],["Selecionar todos","Select all","Seleccionar todos"],["Limpar","Clear","Limpiar"],["Selecione um ano para ver os meses.","Select a year to see its months.","Selecciona un año para ver sus meses."],["Abrir meses","Open months","Abrir meses"],["Remover","Remove","Quitar"],["Todo o período","All time","Todo el período"],["Suas leituras em números","Your reading in numbers","Tus lecturas en números"],["Importe seu My Clippings para ver suas estatísticas.","Import your My Clippings to see your statistics.","Importa tu My Clippings para ver tus estadísticas."],["Livros","Books","Libros"],["Grifos","Highlights","Subrayados"],["Dias lendo","Reading days","Días leyendo"],["Sequência","Streak","Racha"],["Horas estimadas","Estimated hours","Horas estimadas"],["{n} dias seguidos","{n} days in a row","{n} días seguidos"],["recorde: {n}","record: {n}","récord: {n}"],["último grifo em {d}","last highlight on {d}","último subrayado el {d}"],["Estimativa pelos horários dos grifos (sessões com intervalos de até 30 min). O Kindle não envia o tempo real de leitura.","Estimated from highlight times (sessions with gaps of up to 30 min). Kindle does not send actual reading time.","Estimación según las horas de los subrayados (sesiones con pausas de hasta 30 min). Kindle no envía el tiempo real de lectura."],["Livros por período","Books by period","Libros por período"],["Mês","Month","Mes"],["Ano","Year","Año"],["Horas","Hours","Horas"],["Conta o livro no período em que você grifou algo nele. O Kindle não informa se você terminou o livro.","A book counts in the period you highlighted something in it. Kindle does not say whether you finished it.","Cuenta el libro en el período en que subrayaste algo. Kindle no indica si lo terminaste."],["Gêneros","Genres","Géneros"],["Calendário de leitura","Reading calendar","Calendario de lectura"],["Menos","Less","Menos"],["Mais","More","Más"],["Quando você lê","When you read","Cuándo lees"],["Madrugada","Late night","Madrugada"],["Manhã","Morning","Mañana"],["Tarde","Afternoon","Tarde"],["Noite","Evening","Noche"],["Livros mais grifados","Most highlighted books","Libros más subrayados"],["Trecho em destaque","Featured passage","Fragmento destacado"],["Outro trecho","Another passage","Otro fragmento"],["Meta do ano","Yearly goal","Meta del año"],["{a} de {b} livros","{a} of {b} books","{a} de {b} libros"],["Meta de livros","Book goal","Meta de libros"],["Descobertas","Discoveries","Descubrimientos"],["Seu mês mais ativo foi {m}: {n} grifos em {k} livros.","Your busiest month was {m}: {n} highlights across {k} books.","Tu mes más activo fue {m}: {n} subrayados en {k} libros."],["Seu dia mais intenso foi {d}, com {n} grifos.","Your most intense day was {d}, with {n} highlights.","Tu día más intenso fue {d}, con {n} subrayados."],["Seu gênero favorito é {g}, com {p}% dos seus livros.","Your favorite genre is {g}, with {p}% of your books.","Tu género favorito es {g}, con el {p}% de tus libros."],["Você costuma ler mais de madrugada.","You tend to read most late at night.","Sueles leer más de madrugada."],["Você costuma ler mais de manhã.","You tend to read most in the morning.","Sueles leer más por la mañana."],["Você costuma ler mais à tarde.","You tend to read most in the afternoon.","Sueles leer más por la tarde."],["Você costuma ler mais à noite.","You tend to read most in the evening.","Sueles leer más por la noche."],["Seu dia da semana favorito para ler é {d}.","Your favorite day of the week to read is {d}.","Tu día favorito de la semana para leer es {d}."],["Você começa um livro novo a cada {n} dias, em média.","You start a new book every {n} days on average.","Empiezas un libro nuevo cada {n} días de media."],["Em média, você grifa {n} trechos por livro.","On average, you highlight {n} passages per book.","De media, subrayas {n} fragmentos por libro."],["Sua maior sequência foi de {n} dias seguidos.","Your longest streak was {n} days in a row.","Tu mayor racha fue de {n} días seguidos."],["{n} grifos","{n} highlights","{n} subrayados"],["Sem dados de data ainda. Importe o My Clippings para ver o histórico.","No date data yet. Import My Clippings to see your history.","Aún no hay datos de fecha. Importa My Clippings para ver tu historial."],['Ambiente','Atmosphere','Ambiente'],['Clássica','Classic','Clásica'],['Biblioteca antiga','Old library','Biblioteca antigua'],['Moderna','Modern','Moderna'],['Criativa','Creative','Creativa'],['Papel e madeira quente','Paper and warm wood','Papel y madera cálida'],['Mogno, latão e pergaminho','Mahogany, brass and parchment','Caoba, latón y pergamino'],['Limpa, plana e sóbria','Clean, flat and sober','Limpia, plana y sobria'],['Cores vivas e contornos fortes','Bright colors and bold outlines','Colores vivos y contornos fuertes'],['Voltar ao topo','Back to top','Volver arriba'],['Editar informações do livro','Edit book details','Editar datos del libro'],['Editar','Edit','Editar'],['Tags (separadas por vírgula)','Tags (comma-separated)','Etiquetas (separadas por comas)'],['Título','Title','Título'],['Autor','Author','Autor'],['Avaliação','Rating','Valoración'],['Sincronizar','Sync','Sincronizar'],['1 pergunta','1 question','1 pregunta'],['{n} perguntas','{n} questions','{n} preguntas'],['Favoritos','Favorites','Favoritos'],['Mais ações','More actions','Más acciones'],['Com filtros','With filters','Con filtros'],['Qualquer trecho da biblioteca','Any passage from your library','Cualquier fragmento de la biblioteca'],['Tema, livro ou gênero','Theme, book or genre','Tema, libro o género'],['Alterar opção','Change option','Cambiar opción'],['Voltar','Back','Volver'],['Estilo das configurações','Settings style','Estilo de los ajustes'],['Livro (folhear)','Book (page turn)','Libro (pasar páginas)'],['Painel','Panel','Panel'],
 ["Enviar capa","Upload cover","Subir portada"],["Capa atualizada","Cover updated","Portada actualizada"],["Sem capa","No cover","Sin portada"],
 ["Capa","Cover","Portada"],["Escolher imagem","Choose image","Elegir imagen"],["Trocar imagem","Change image","Cambiar imagen"],["Remover","Remove","Quitar"],["Digite para buscar ou criar um autor","Type to search or create an author","Escribe para buscar o crear un autor"],["Novo autor: {a}","New author: {a}","Nuevo autor: {a}"],["Automático (pelo título)","Automatic (from title)","Automático (por el título)"],["Informe o título do livro","Enter the book title","Escribe el título del libro"],["Esse livro já está na biblioteca","This book is already in your library","Este libro ya está en la biblioteca"],["Não foi possível ler essa imagem","Couldn’t read that image","No se pudo leer esa imagen"],
 ["{a} livros reconhecidos na biblioteca · {b} sem capa disponível · {c} capas ilegíveis","{a} books matched in your library · {b} with no cover available · {c} unreadable covers","{a} libros reconocidos en la biblioteca · {b} sin portada disponible · {c} portadas ilegibles"],["Reconhecidos, mas sem capa:","Matched, but no cover:","Reconocidos, pero sin portada:"],
@@ -636,9 +742,183 @@ function ingest(t){const o=parse(t);let nb=0,nh=0;const nw=[];
 const cover=b=>{const u=b.img||b.cov,h=hash(b.title)%360;return `<div class="cv" style="background:linear-gradient(160deg,hsl(${h} 45% 32%),hsl(${(h+40)%360} 50% 18%))"><b>${esc(b.title)}</b><i>${esc(b.author)}</i>${u?`<img src="${esc(u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<60)this.remove()" onerror="this.remove()">`:''}</div>`};
 const stars=b=>[1,2,3,4,5].map(i=>`<button class="st" aria-label="${tt('{n} estrelas',{n:i})}" data-a="r" data-i="${i}">${i<=b.r?'★':'☆'}</button>`).join('');
 let nt=0;const cur=()=>S.books[location.hash.slice(1)];
+
+/* ---------- Estatísticas ---------- */
+const STS={met:'b',gen:'b',q:-1,sel:{},focus:0,open:false,act:0,fresh:true};
+const STL=()=>({pt:'pt-BR',en:'en-US',es:'es-ES'}[lang]||'pt-BR');
+const dIdx=t=>{const d=new Date(t);return Math.round(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5)};
+const wdOf=i=>new Date(i*864e5).getUTCDay();
+const dFmt=i=>{const d=new Date(i*864e5);return String(d.getUTCDate()).padStart(2,'0')+'/'+(MA[lang]||MA.pt)[d.getUTCMonth()]+'/'+String(d.getUTCFullYear()).slice(-2)};
+const mFmt=k=>(MA[lang]||MA.pt)[k%12]+'/'+String(Math.floor(k/12)).slice(-2);
+const mkey=t=>{const d=new Date(t);return d.getFullYear()*12+d.getMonth()};
+const mLong=k=>new Date(Math.floor(k/12),k%12,1).toLocaleDateString(STL(),{month:'long',year:'numeric'});
+const gHue=k=>{const i=G.findIndex(x=>x[0]==k);return(i<0?13:i)*47%360};
+const gCol=k=>`hsl(${gHue(k)} 58% ${50+(G.findIndex(x=>x[0]==k)%3)*4}%)`;
+function statsRange(){
+ const ys=Object.keys(STS.sel).map(Number).filter(y=>(STS.sel[y]||[]).some(Boolean)).sort((a,b)=>a-b);
+ if(!ys.length)return null;
+ const keys=[];ys.forEach(y=>STS.sel[y].forEach((on,m)=>{if(on)keys.push(y*12+m)}));
+ const set=new Set(keys);
+ return{ys,keys,set,n:keys.length,pred:t=>set.has(mkey(t)),y:ys[ys.length-1]}}
+function statsCalc(f){
+ const bs=Object.values(S.books),ev0=[];
+ bs.forEach(b=>b.hl.forEach(h=>{if(h.d)ev0.push({t:h.d,b,h})}));ev0.sort((x,y)=>x.t-y.t);
+ const ev=f?ev0.filter(e=>f.pred(e.t)):ev0;
+ const tt0=ev0.filter(e=>{const d=new Date(e.t);return d.getHours()||d.getMinutes()||d.getSeconds()}).length,hasT=ev0.length>0&&tt0/ev0.length>.2;
+ const ses=[];let c=null;ev.forEach(e=>{if(c&&e.t-c.e<=18e5){c.e=e.t;c.n++}else{c={s:e.t,e:e.t,n:1};ses.push(c)}});
+ ses.forEach(x=>{x.m=Math.max(3,Math.round((x.e-x.s)/6e4)+2)});
+ const cnt={};ev.forEach(e=>{const k=dIdx(e.t);cnt[k]=(cnt[k]||0)+1});
+ const days=Object.keys(cnt).map(Number).sort((a,b)=>a-b);
+ let best=0,run=0,prev=null;days.forEach(d=>{run=prev!==null&&d-prev===1?run+1:1;best=Math.max(best,run);prev=d});
+ const today=dIdx(Date.now()),last=days.length?days[days.length-1]:null;
+ let curS=0;if(!f&&last!==null&&today-last<=1){curS=1;for(let i=days.length-2;i>=0&&days[i]===days[i+1]-1;i--)curS++}
+ const tod=[0,0,0,0],wd=[0,0,0,0,0,0,0];ev.forEach(e=>{const d=new Date(e.t),h=d.getHours();tod[h<6?0:h<12?1:h<18?2:3]++;wd[d.getDay()]++});
+ const fb={};ev.forEach(e=>{fb[e.b.id]=Math.min(fb[e.b.id]||1e18,e.t)});const firsts=Object.values(fb).sort((a,b)=>a-b);
+ const hb={};ev.forEach(e=>{hb[e.b.id]=(hb[e.b.id]||0)+1});
+ const bsF=f?bs.filter(b=>hb[b.id]):bs;
+ return{bs,bsF,ev,ev0,hasT,ses,cnt,days,best,curS,last,tod,wd,firsts,hb,min:ses.reduce((a,x)=>a+x.m,0)}}
+function statsSeries(D0,f){
+ const ev=D0.ev;let gran,keys=[],lab;
+ if(!f){if(!ev.length)return[];const yrs=new Set(D0.ev0.map(e=>new Date(e.t).getFullYear()));gran=yrs.size>=2?'y':'m';const K0=t=>{const d=new Date(t);return gran==='y'?d.getFullYear():d.getFullYear()*12+d.getMonth()};const a=K0(ev[0].t),z=K0(ev[ev.length-1].t);if(gran==='y'){for(let k=a;k<=z;k++)keys.push(k)}else{for(let k=Math.max(a,z-23);k<=z;k++)keys.push(k)}lab=k=>gran==='y'?String(k):mFmt(k)}
+ else if(f.n===1){gran='d';const y=Math.floor(f.keys[0]/12),m=f.keys[0]%12,n=new Date(y,m+1,0).getDate();for(let i=1;i<=n;i++)keys.push(i);lab=k=>String(k)}
+ else if(f.keys.length<=24){gran='m';keys=f.keys.slice();lab=f.ys.length===1?(k=>(MA[lang]||MA.pt)[k%12]):mFmt}
+ else{gran='y';keys=f.ys.slice();lab=k=>String(k)}
+ const K=t=>{const d=new Date(t);return gran==='y'?d.getFullYear():gran==='m'?d.getFullYear()*12+d.getMonth():d.getDate()};
+ const o={};keys.forEach(k=>{o[k]={b:new Set(),h:0,m:0}});
+ ev.forEach(e=>{const x=o[K(e.t)];if(x){x.b.add(e.b.id);x.h++}});
+ D0.ses.forEach(s=>{const x=o[K(s.s)];if(x)x.m+=s.m});
+ return keys.map(k=>({l:lab(k),b:o[k].b.size,h:o[k].h,m:o[k].m}))}
+function statsCal(D0,f){
+ if(!D0.ev0.length)return'';
+ const grid=(ws,z,a,ok)=>{const cols=Math.floor((z-ws)/7)+1;let cells='',labs='',pm=-1;
+  for(let c=0;c<cols;c++){const d0=ws+c*7,m=new Date(d0*864e5).getUTCMonth(),dd=new Date(d0*864e5).getUTCDate();
+   if(m!==pm&&dd<=7){labs+=`<span style="grid-column:${c+1}">${(MA[lang]||MA.pt)[m]}</span>`;pm=m}
+   for(let r=0;r<7;r++){const di=d0+r;if(di>z||di<a||!ok(di)){cells+='<i class="hm hmx"></i>';continue}const n=D0.cnt[di]||0,lv=n===0?0:n===1?1:n<4?2:n<7?3:4;cells+=`<i class="hm hm${lv}" data-tip="${dFmt(di)}: ${n}"></i>`}}
+  return `<div class="hmw"><div class="hml" style="grid-template-columns:repeat(${cols},13px)">${labs}</div><div class="hmg">${cells}</div></div>`};
+ let body='';
+ if(!f){const z=D0.days.length?D0.days[D0.days.length-1]:dIdx(Date.now()),ws=z-wdOf(z)-52*7;body=grid(ws,z,ws,()=>true)}
+ else{body=f.ys.slice(-4).reverse().map(y=>{const a=dIdx(new Date(y,0,1).getTime()),z=dIdx(new Date(y,11,31).getTime());return `<div class="hmy">${f.ys.length>1?`<b>${y}</b>`:''}${grid(a-wdOf(a),z,a,di=>f.set.has(y*12+new Date(di*864e5).getUTCMonth()))}</div>`}).join('')}
+ return `<section class="stc stc3"><div class="stch"><h3>${I('calendar')}<span>${tt('Calendário de leitura')}</span></h3><div class="hmlg"><span>${tt('Menos')}</span><i class="hm hm0"></i><i class="hm hm1"></i><i class="hm hm2"></i><i class="hm hm3"></i><i class="hm hm4"></i><span>${tt('Mais')}</span></div></div>${body}</section>`}
+const goalsLoad=()=>{let o={};try{o=JSON.parse(localStorage.mg_goals||'{}')}catch(e){}return{y:o.y||{},m:o.m||{}}};
+const goalDef=()=>{let d=12;try{d=+localStorage.mg_goal||12}catch(e){}return d};
+const goalY=y=>{const g=goalsLoad();return +g.y[y]>0?+g.y[y]:goalDef()};
+const goalM=(y,m)=>{const g=goalsLoad(),v=+g.m[y+'-'+m];return v>0?v:Math.round(goalY(y)/12*10)/10};
+function statsGoalModal(){
+ const A=statsCalc(null),cy=new Date().getFullYear(),ys=[...new Set([cy,...A.ev0.map(e=>new Date(e.t).getFullYear())])].sort((a,b)=>b-a);
+ const W=goalsLoad(),D={d:goalDef()};let tab='y',my=cy;
+ const mn=m=>{const s=new Date(2000,m,1).toLocaleDateString(STL(),{month:'long'});return s.charAt(0).toUpperCase()+s.slice(1)};
+ const readY=y=>new Set(A.ev0.filter(e=>new Date(e.t).getFullYear()===y).map(e=>e.b.id)).size;
+ const readM=(y,m)=>new Set(A.ev0.filter(e=>{const d=new Date(e.t);return d.getFullYear()===y&&d.getMonth()===m}).map(e=>e.b.id)).size;
+ const inp=(k,v,ph)=>`<input type="number" min="1" max="999" data-g="${k}" value="${v||''}" placeholder="${ph}">`;
+ const body=()=>tab==='y'?`<table class="gtb"><thead><tr><th>${tt('Ano')}</th><th>${tt('Lidos')}</th><th>${tt('Meta')}</th></tr></thead><tbody>${ys.map(y=>`<tr><td>${y}</td><td>${readY(y)}</td><td>${inp('y:'+y,W.y[y],D.d)}</td></tr>`).join('')}<tr class="gdf"><td colspan="2">${tt('Padrão (anos sem meta)')}</td><td>${inp('d',D.d,12)}</td></tr></tbody></table>`
+  :(()=>{const yg=+W.y[my]>0?+W.y[my]:D.d,ph=Math.round(yg/12*10)/10;return `<div class="gmh"><select id="gmy" aria-label="${tt('Ano')}">${ys.map(y=>`<option value="${y}"${y===my?' selected':''}>${y}</option>`).join('')}</select></div><table class="gtb"><thead><tr><th>${tt('Mês')}</th><th>${tt('Lidos')}</th><th>${tt('Meta')}</th></tr></thead><tbody>${[...Array(12)].map((_,m)=>`<tr><td>${mn(m)}</td><td>${readM(my,m)}</td><td>${inp('m:'+my+'-'+m,W.m[my+'-'+m],ph)}</td></tr>`).join('')}</tbody></table>`})();
+ const draw=()=>{const el=document.getElementById('gmod');if(!el)return;el.innerHTML=`<div class="gtabs"><button type="button" class="${tab==='y'?'on':''}" data-gt="y">${tt('Ano')}</button><button type="button" class="${tab==='m'?'on':''}" data-gt="m">${tt('Mês')}</button></div>${body()}<p class="sm">${tt('Deixe em branco para usar o padrão. Nos meses, o padrão é a meta do ano dividida por 12.')}</p>`};
+ modal(`<h3>${tt('Metas de leitura')}</h3><p class="sm">${tt('Defina uma meta de livros para cada ano ou mês. Contamos um livro no período em que você grifou algo nele.')}</p><div id="gmod"></div>`,()=>{
+  const o={y:{},m:{}};Object.keys(W.y).forEach(k=>{if(+W.y[k]>0)o.y[k]=+W.y[k]});Object.keys(W.m).forEach(k=>{if(+W.m[k]>0)o.m[k]=+W.m[k]});
+  try{localStorage.mg_goals=JSON.stringify(o);localStorage.mg_goal=D.d}catch(e){}statsRedraw(true)});
+ draw();const el=document.getElementById('gmod');
+ el.addEventListener('click',e=>{const b=e.target.closest('[data-gt]');if(b){tab=b.dataset.gt;draw()}});
+ el.addEventListener('input',e=>{const t=e.target;if(!t.dataset||!t.dataset.g)return;const i=t.dataset.g.indexOf(':'),k=i<0?t.dataset.g:t.dataset.g.slice(0,i),v=i<0?'':t.dataset.g.slice(i+1),n=Math.round(+t.value);if(k==='d')D.d=n>0?n:12;else{const o=k==='y'?W.y:W.m;if(n>0)o[v]=n;else delete o[v]}});
+ el.addEventListener('change',e=>{if(e.target.id==='gmy'){my=+e.target.value;draw()}})}
+function statsPeriods(A,f){
+ const nb=pr=>new Set(A.ev0.filter(e=>pr(e.t)).map(e=>e.b.id)).size,out=[];
+ if(!f){[...new Set(A.ev0.map(e=>new Date(e.t).getFullYear()))].sort((a,b)=>a-b).forEach(y=>out.push({t:'y',y,l:String(y),n:nb(t=>new Date(t).getFullYear()===y)}));return out}
+ f.ys.forEach(y=>{const s=STS.sel[y];if(s.every(Boolean))out.push({t:'y',y,l:String(y),n:nb(t=>new Date(t).getFullYear()===y)});else s.forEach((on,m)=>{if(on)out.push({t:'m',y,m,l:mFmt(y*12+m),n:nb(t=>{const d=new Date(t);return d.getFullYear()===y&&d.getMonth()===m})})})});
+ return out}
+function statsV(){
+ const A=statsCalc(null),bs=A.bs;
+ if(!bs.length)return `<div class="stw"><div class="sth"><h2 class="stt1">${I('chart')}<span>${tt('Suas leituras em números')}</span></h2></div><p class="sm">${tt('Importe seu My Clippings para ver suas estatísticas.')}</p></div>`;
+ const f=statsRange(),D0=f?statsCalc(f):A,ev=D0.ev,hasEv=A.ev0.length>0;
+ const yrs=[...new Set(A.ev0.map(e=>new Date(e.t).getFullYear()))].sort((a,b)=>a-b),hasM=new Set(A.ev0.map(e=>mkey(e.t))),mn=MA[lang]||MA.pt;
+ const tg=(k,v,l,on,t)=>`<button type="button" class="${on?'on':''}" data-sx="${k}:${v}"${t?` title="${esc(tt(t))}"`:''}>${tt(l)}</button>`;
+ const mName=m=>new Date(2000,m,1).toLocaleDateString(STL(),{month:'long'}),cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+ const ystate=y=>{const s=STS.sel[y];return !s||!s.some(Boolean)?'':s.every(Boolean)?'all':'part'};
+ const act=STS.act&&yrs.includes(STS.act)?STS.act:0;
+ const nSel=f?f.n:0,trig=nSel?(nSel===1?tt('1 mês selecionado'):tt('{n} meses selecionados',{n:nSel})):tt('Todo o período');
+ const chips=[];Object.keys(STS.sel).map(Number).sort((a,b)=>a-b).forEach(y=>{const s=STS.sel[y];if(!s||!s.some(Boolean))return;if(s.every(Boolean))chips.push(['y:'+y,String(y)]);else s.forEach((on,m)=>{if(on)chips.push(['m:'+y+':'+m,mName(m)+' '+y])})});
+ const dd=STS.open?`<div class="fdd" role="dialog"><div class="fdy"><button type="button" class="fdo" data-sx="all:1"><span class="ck${f?'':' all'}"></span>${tt('Todo o período')}</button>${yrs.slice().reverse().map(y=>`<div class="fdr${act===y?' act':''}"><button type="button" class="fdo" data-sx="yt:${y}"><span class="ck ${ystate(y)}"></span>${y}</button><button type="button" class="fdc" data-sx="fa:${y}" aria-label="${tt('Abrir meses')}">›</button></div>`).join('')}</div>${act?`<div class="fdm"><div class="fdmh"><b>${act}</b><button type="button" data-sx="ma:${act}">${tt('Selecionar todos')}</button><button type="button" data-sx="mc:${act}">${tt('Limpar')}</button></div><div class="fdml">${[...Array(12)].map((_,m)=>{const on=STS.sel[act]&&STS.sel[act][m];return `<button type="button" class="fmo${hasM.has(act*12+m)?'':' nd'}" data-sx="mo:${act}:${m}"><span class="ck${on?' all':''}"></span>${cap(mName(m))}</button>`}).join('')}</div></div>`:''}</div>`:'';
+ const filt=hasEv?`<div class="stf"><div class="fdw"><button type="button" class="fdt${STS.open?' open':''}" data-sx="tg:1" aria-expanded="${STS.open}">${I('calendar')}<span>${trig}</span><i></i></button>${dd}</div>${chips.length?`<div class="fch">${chips.map(c=>`<span class="fcc">${esc(c[1])}<button type="button" data-sx="cx:${c[0]}" aria-label="${tt('Remover')}">×</button></span>`).join('')}</div>`:''}</div>`:'';
+ const nH=f?ev.length:bs.reduce((a,b)=>a+b.hl.length,0),hrs=D0.hasT?Math.round(D0.min/6)/10:null,nB=D0.bsF.length;
+ const kpi=(ic,v,l,sub,dec,tip)=>`<div class="stk"${tip?` title="${esc(tt(tip))}"`:''}><span class="stki">${I(ic)}</span><b data-cu="${v}"${dec?' data-d="1"':''}>${v}</b><span class="stl">${tt(l)}</span><small>${sub||'&nbsp;'}</small></div>`;
+ const streakSub=D0.curS>0?tt('{n} dias seguidos',{n:D0.curS})+' · '+tt('recorde: {n}',{n:D0.best}):(D0.last!==null?tt('último grifo em {d}',{d:dFmt(D0.last)}):'');
+ const kp='<div class="stkr">'+kpi('book',nB,'Livros','')+kpi('pen',nH,'Grifos','')+(hasEv?kpi('calendar',D0.days.length,'Dias lendo',D0.days.length?dFmt(D0.days[0])+' → '+dFmt(D0.days[D0.days.length-1]):''):'')+(hasEv?kpi('flame',D0.curS>0?D0.curS:D0.best,'Sequência',streakSub):'')+(hrs!==null&&hasEv?kpi('clock',hrs,'Horas estimadas','≈',1,'Estimativa pelos horários dos grifos (sessões com intervalos de até 30 min). O Kindle não envia o tempo real de leitura.'):'')+'</div>';
+ // barras (granularidade acompanha o filtro)
+ const met=A.hasT?STS.met:(STS.met==='t'?'b':STS.met),ser=statsSeries(D0,f);
+ const val=x=>met==='b'?x.b:met==='h'?x.h:Math.round(x.m/6)/10,mx=Math.max(1,...ser.map(val));
+ const bars=ser.length?`<div class="sbars">${ser.map((x,i)=>{const v=val(x);return `<div class="sbc"><span class="sbv">${v||''}</span><div class="sbt"><i class="sbar" style="height:${Math.max(v?3:0,v/mx*100)}%;--i:${i}" data-tip="${x.l}: ${v} ${tt(met==='b'?'Livros':met==='h'?'Grifos':'Horas').toLowerCase()}"></i></div><span class="sbl">${x.l.includes('/')?x.l.replace('/','<em>/')+'</em>':x.l}</span></div>`}).join('')}</div>`:`<p class="sm">${tt('Sem dados de data ainda. Importe o My Clippings para ver o histórico.')}</p>`;
+ const c1=`<section class="stc stc2"><div class="stch"><h3>${I('chart')}<span>${tt('Livros por período')}</span></h3><div class="stt">${tg('met','b','Livros',met==='b')}${tg('met','h','Grifos',met==='h')}${A.hasT?tg('met','t','Horas',met==='t'):''}</div></div>${bars}<p class="sm stn">${tt('Conta o livro no período em que você grifou algo nele. O Kindle não informa se você terminou o livro.')}</p></section>`;
+ // rosca
+ const gens={};D0.bsF.forEach(b=>{const k=gk(b);gens[k]=(gens[k]||0)+(STS.gen==='b'?1:(f?(D0.hb[b.id]||0):b.hl.length))});
+ const ga=Object.entries(gens).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]),gt=ga.reduce((a,x)=>a+x[1],0)||1,R=44,CC=2*Math.PI*R;let off=0;
+ const seg=ga.map(([k,v],i)=>{const L=v/gt*CC,gap=ga.length>1?1.6:0,el=`<circle class="dseg" data-g="${k}" data-gv="${v}" data-gn="${esc(gn(k))}" style="--i:${i}" cx="60" cy="60" r="${R}" fill="none" stroke="${gCol(k)}" stroke-width="16" stroke-dasharray="${Math.max(0.1,L-gap)} ${CC-Math.max(0.1,L-gap)}" stroke-dashoffset="${-off}" transform="rotate(-90 60 60)"></circle>`;off+=L;return el}).join('');
+ const c2=`<section class="stc"><div class="stch"><h3>${I('layers')}<span>${tt('Gêneros')}</span></h3><div class="stt">${tg('gen','b','Livros',STS.gen==='b')}${tg('gen','h','Grifos',STS.gen==='h')}</div></div><div class="stdn"><div class="dwrap"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="${R}" fill="none" stroke="color-mix(in srgb,var(--mut) 15%,transparent)" stroke-width="16"/>${seg}</svg><div class="dctr"><b id="dcN" data-t="${gt}">${gt}</b><span id="dcL" data-t="${tt(STS.gen==='b'?'Livros':'Grifos')}">${tt(STS.gen==='b'?'Livros':'Grifos')}</span></div></div><ul class="dlg">${ga.map(([k,v])=>`<li data-g="${k}" data-gv="${v}" data-gn="${esc(gn(k))}"><i style="background:${gCol(k)}"></i><span>${esc(gn(k))}</span><b>${v}</b><small>${Math.round(v/gt*100)}%</small></li>`).join('')}</ul></div></section>`;
+ const cal=hasEv?statsCal(D0,f):'';
+ // quando você lê
+ let when='';
+ if(hasEv&&ev.length){const wdn=[...Array(7)].map((_,i)=>new Date(2024,0,7+i).toLocaleDateString(STL(),{weekday:'short'}).replace('.','')),wm=Math.max(1,...D0.wd),tot=ev.length||1,tn=['Madrugada','Manhã','Tarde','Noite'],ti=D0.tod.indexOf(Math.max(...D0.tod));
+  when=`<section class="stc"><div class="stch"><h3>${I('clock')}<span>${tt('Quando você lê')}</span></h3></div>${A.hasT?`<div class="tod">${tn.map((n,i)=>`<div class="${i===ti?'on':''}"><b>${Math.round(D0.tod[i]/tot*100)}%</b><span>${tt(n)}</span></div>`).join('')}</div>`:''}<div class="wdb">${D0.wd.map((v,i)=>`<div class="wdc"><div class="wdt"><i class="sbar" style="height:${Math.max(v?4:0,v/wm*100)}%;--i:${i}" data-tip="${wdn[i]}: ${v}"></i></div><span>${wdn[i]}</span></div>`).join('')}</div></section>`}
+ // top livros
+ const top=D0.bsF.slice().sort((a,b)=>(f?(D0.hb[b.id]||0)-(D0.hb[a.id]||0):b.hl.length-a.hl.length)).slice(0,5),cn=b=>f?(D0.hb[b.id]||0):b.hl.length,tm=Math.max(1,top[0]?cn(top[0]):1);
+ const c4=`<section class="stc"><div class="stch"><h3>${I('book')}<span>${tt('Livros mais grifados')}</span></h3></div><ol class="stop">${top.map(b=>`<li><a href="#${b.id}" data-a="op" data-i="${b.id}"><span class="stot">${esc(b.title)}</span><span class="stob"><i style="width:${cn(b)/tm*100}%"></i></span><b>${cn(b)}</b></a></li>`).join('')}</ol></section>`;
+ // trecho em destaque
+ const pool=[];(f?ev.map(e=>[e.b,e.h]):bs.flatMap(b=>b.hl.map(h=>[b,h]))).forEach(([b,h])=>{if(h.text&&h.text.length>=20&&h.text.length<=320)pool.push([b,h])});
+ if(STS.q<0||STS.q>=pool.length)STS.q=pool.length?Math.floor(Math.random()*pool.length):-1;
+ const qp=pool[STS.q],c5=`<section class="stc stq"><div class="stch"><h3>${I('star')}<span>${tt('Trecho em destaque')}</span></h3>${pool.length>1?`<button type="button" class="lk stqb" data-sx="q:1">${I('shuffle')}<span>${tt('Outro trecho')}</span></button>`:''}</div>${qp?`<blockquote>“${esc(qp[1].text)}”</blockquote><a class="stqs" href="#${qp[0].id}" data-a="op" data-i="${qp[0].id}">${esc(qp[0].title)}${qp[0].author?' · '+esc(qp[0].author):''}</a>`:''}</section>`;
+ // metas: rosca (um período) ou barras + linha (vários)
+ const per=statsPeriods(A,f),gOf=q=>q.t==='y'?goalY(q.y):goalM(q.y,q.m),single=per.length<=1,pp=per[0]||{t:'y',y:new Date().getFullYear(),n:0,l:String(new Date().getFullYear())};
+ const editBtn=`<button type="button" class="lk stqb" data-sx="gs:1">${I('pen')}<span>${tt('Definir meta')}</span></button>`;
+ let c6='',cmpWide=false;
+ if(single){
+  const g=gOf(pp),pct=g>0?Math.round(pp.n/g*100):0,over=pct>100,RG=50,CG=2*Math.PI*RG,tl=pp.t==='y'?tt('Meta anual')+' '+pp.y:tt('Meta mensal')+' '+mName(pp.m).replace(/^./,x=>x.toUpperCase())+' '+pp.y;
+  c6=`<section class="stc stg"><div class="stch"><h3>${I('target')}<span>${tt('Meta')}</span></h3>${editBtn}</div><div class="goal"><div class="gring"><svg viewBox="0 0 124 124" aria-hidden="true"><circle cx="62" cy="62" r="${RG}" fill="none" stroke="color-mix(in srgb,var(--mut) 15%,transparent)" stroke-width="12"/><circle class="gr" cx="62" cy="62" r="${RG}" fill="none" stroke="var(--acc)" stroke-width="12" stroke-linecap="round" stroke-dasharray="${CG*Math.min(1,pct/100)} ${CG}" transform="rotate(-90 62 62)"/>${over?`<circle class="gr" cx="62" cy="62" r="${RG}" fill="none" stroke="var(--pl)" stroke-width="12" stroke-linecap="round" stroke-dasharray="${CG*Math.min(1,(pct-100)/100)} ${CG}" transform="rotate(-90 62 62)"/>`:''}</svg><div class="gpc"><b>${pct}%</b></div></div><div class="gtx"><b>${tt('{a} de {b} livros',{a:pp.n,b:g})}</b><span class="sm">${tl}</span>${over?`<span class="gup">${tt('+{n}% acima da meta',{n:pct-100})}</span>`:''}</div></div></section>`}
+ else{
+  cmpWide=true;const uni=per.every(q=>q.t===per[0].t),H=190,gs=per.map(q=>uni?gOf(q):100),vals=per.map(q=>uni?q.n:(gOf(q)>0?Math.round(q.n/gOf(q)*100):0)),mx=Math.max(1,...gs,...vals)*1.12,eq=gs.every(x=>x===gs[0]);
+  const cols=per.map((q,i)=>{const g=gOf(q),pct=g>0?Math.round(q.n/g*100):0,v=vals[i];return `<div class="gcc${q.n>=g?' hit':''}"><span class="sbv">${uni?q.n:pct+'%'}</span><i class="sbar" style="height:${Math.max(v?3:0,v/mx*H)}px;--i:${i}" data-tip="${esc(q.l)}: ${q.n}/${g} (${pct}%)"></i><i class="gtk" style="bottom:${gs[i]/mx*H}px"></i><span class="gcl">${esc(q.l)}${uni?`<small>${pct}%</small>`:''}</span></div>`}).join('');
+  const lt=uni?(eq?tt(per[0].t==='y'?'Meta anual':'Meta mensal')+': '+gs[0]:tt('Meta')):'100%';
+  c6=`<section class="stc stc3 stg"><div class="stch"><h3>${I('target')}<span>${tt('Meta')}</span></h3><div class="glg"><span><i class="lb"></i>${tt('Livros')}</span><span><i class="ll"></i>${lt}</span></div>${editBtn}</div><div class="gcw"><div class="gcb">${cols}</div></div></section>`}
+ // descobertas
+ const ins=[];
+ if(ev.length){const mo={};ev.forEach(e=>{const k=mkey(e.t);(mo[k]=mo[k]||{b:new Set(),h:0}).b.add(e.b.id);mo[k].h++});const ally=Object.entries(mo).sort((a,b)=>b[1].h-a[1].h)[0];
+  if(ally&&Object.keys(mo).length>1)ins.push(['flame',tt('Seu mês mais ativo foi {m}: {n} grifos em {k} livros.',{m:mFmt(+ally[0]),n:ally[1].h,k:ally[1].b.size})]);
+  const rec=Object.entries(D0.cnt).sort((a,b)=>b[1]-a[1])[0];if(rec)ins.push(['star',tt('Seu dia mais intenso foi {d}, com {n} grifos.',{d:dFmt(+rec[0]),n:rec[1]})]);
+  if(D0.best>1)ins.push(['calendar',tt('Sua maior sequência foi de {n} dias seguidos.',{n:D0.best})]);
+  if(A.hasT){const ti=D0.tod.indexOf(Math.max(...D0.tod));ins.push(['clock',tt(['Você costuma ler mais de madrugada.','Você costuma ler mais de manhã.','Você costuma ler mais à tarde.','Você costuma ler mais à noite.'][ti])])}
+  const wi=D0.wd.indexOf(Math.max(...D0.wd));ins.push(['calendar',tt('Seu dia da semana favorito para ler é {d}.',{d:new Date(2024,0,7+wi).toLocaleDateString(STL(),{weekday:'long'})})]);
+  if(D0.firsts.length>1){const dd=Math.round((D0.firsts[D0.firsts.length-1]-D0.firsts[0])/864e5/(D0.firsts.length-1));if(dd>0)ins.push(['book',tt('Você começa um livro novo a cada {n} dias, em média.',{n:dd})])}}
+ if(nB)ins.push(['pen',tt('Em média, você grifa {n} trechos por livro.',{n:Math.round(nH/nB*10)/10})]);
+ if(ga.length&&STS.gen==='b'||ga.length){const p=Math.round(D0.bsF.filter(b=>gk(b)===ga[0][0]).length/(nB||1)*100);ins.push(['tag',tt('Seu gênero favorito é {g}, com {p}% dos seus livros.',{g:gn(ga[0][0]),p})])}
+ const c7=ins.length?`<section class="stc ${cmpWide?'stc3':'stc2'}"><div class="stch"><h3>${I('bulb')}<span>${tt('Descobertas')}</span></h3></div><div class="stin">${ins.slice(0,8).map(x=>`<div><span class="stki">${I(x[0])}</span><p>${x[1]}</p></div>`).join('')}</div></section>`:'';
+ const na=STS.fresh?'':' na';STS.fresh=false;
+ return `<div class="stw${na}"><div class="sth"><h2 class="stt1">${I('chart')}<span>${tt('Suas leituras em números')}</span></h2>${filt}</div>${kp}<div class="stgr">${c1}${c2}${cal}${when}${c4}${c5}${c6}${c7}</div></div>`}
+function statsScroll(){const h=document.querySelector('header'),s=document.querySelector('.sth');if(!s||!h)return;const hh=h.offsetHeight;document.documentElement.style.setProperty('--hh',hh+'px');s.classList.toggle('stuck',s.getBoundingClientRect().top<=hh+1)}
+addEventListener('scroll',statsScroll,{passive:true});addEventListener('resize',statsScroll);
+function statsInit(){
+ statsScroll();
+ if(document.querySelector('.stw.na'))return;
+ const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ document.querySelectorAll('.stw [data-cu]').forEach(e=>{const v=+e.dataset.cu,d=e.dataset.d?1:0;if(rm||!(v>0))return;const t0=performance.now(),du=700;const f=n=>{const p=Math.min(1,(n-t0)/du),x=v*(1-Math.pow(1-p,3));e.textContent=d?x.toFixed(1):Math.round(x);if(p<1)requestAnimationFrame(f);else e.textContent=d?v.toFixed(1):v};e.textContent=d?'0.0':'0';requestAnimationFrame(f);setTimeout(()=>{e.textContent=d?v.toFixed(1):v},du+200)})}
+function statsRedraw(an){if(location.hash.slice(1)!=='stats')return;const y=scrollY;STS.fresh=!!an;$('#app').innerHTML=statsV();statsInit();tr($('#app'));scrollTo(0,y);statsScroll()}
+document.addEventListener('click',e=>{const x=e.target.closest&&e.target.closest('[data-sx]');
+ if(!x){if(STS.open&&location.hash.slice(1)==='stats'&&!(e.target.closest&&e.target.closest('.fdw'))){STS.open=false;statsRedraw(false)}return}
+ const[k,v,w,z]=x.dataset.sx.split(':');let an=false;
+ if(k==='met'){STS.met=v;an=true}else if(k==='gen'){STS.gen=v;an=true}else if(k==='q')STS.q=-1;
+ else if(k==='tg'){STS.open=!STS.open;STS.act=0}
+ else if(k==='all'){STS.sel={};STS.open=false;STS.act=0;STS.q=-1;an=true}
+ else if(k==='yt'){const y=+v,s=STS.sel[y];STS.act=y;if(s&&s.every(Boolean))delete STS.sel[y];else STS.sel[y]=Array(12).fill(true);STS.q=-1}
+ else if(k==='fa'){STS.act=STS.act===+v?0:+v}
+ else if(k==='gs'){statsGoalModal();return}
+ else if(k==='mo'){const y=+v,m=+w;(STS.sel[y]=STS.sel[y]||Array(12).fill(false))[m]=!STS.sel[y][m];if(!STS.sel[y].some(Boolean))delete STS.sel[y];STS.q=-1}
+ else if(k==='ma'){STS.sel[+v]=Array(12).fill(true);STS.q=-1}
+ else if(k==='mc'){delete STS.sel[+v];STS.q=-1}
+ else if(k==='cx'){if(v==='y')delete STS.sel[+w];else{const y=+w,m=+z;if(STS.sel[y]){STS.sel[y][m]=false;if(!STS.sel[y].some(Boolean))delete STS.sel[y]}}STS.q=-1;an=true}
+ statsRedraw(an)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&STS.open&&location.hash.slice(1)==='stats'){STS.open=false;statsRedraw(false)}});
+document.addEventListener('change',e=>{const t=e.target;if(!t)return;if(t.id==='goalIn'){const v=Math.max(1,Math.min(999,Math.round(+t.value)||12));try{localStorage.mg_goal=v}catch(x){}statsRedraw()}});
+document.addEventListener('mouseover',e=>{const g=e.target.closest&&e.target.closest('.stw [data-g]'),n=document.getElementById('dcN'),l=document.getElementById('dcL');if(!n||!l)return;if(g){n.textContent=g.dataset.gv;l.textContent=g.dataset.gn;document.querySelectorAll('.stw .dseg').forEach(s=>s.classList.toggle('dim',s.dataset.g!==g.dataset.g))}else{n.textContent=n.dataset.t;l.textContent=l.dataset.t;document.querySelectorAll('.stw .dseg').forEach(s=>s.classList.remove('dim'))}});
+
 function render(){__s();document.documentElement.lang=lang;const r=location.hash.slice(1);
- if(r!==route){route=r;view.q='';view.f=0;view.who='';scrollTo(0,0);const A=$('#app');A.classList.remove('turn');void A.offsetWidth;if(S.books[r]&&!nt)A.classList.add('turn')}
- const b=S.books[r],g=r.startsWith('g-')&&r.slice(2);const ap=r==='apr';if(ap)TRK.once('aprendizado');$('#app').innerHTML=ap?aprV():b?bookV(b):g?roomV(g):libV();ap?aprInit():b?list():g?grid():results(1);qdRender();$('#hq').value=view.q;document.body.classList.toggle('inb',!!b);tr(document.body)}
+ if(r!==route){route=r;STS.fresh=(r==='stats');view.q='';view.f=0;view.who='';scrollTo(0,0);const A=$('#app');A.classList.remove('turn');void A.offsetWidth;if(S.books[r]&&!nt)A.classList.add('turn')}
+ const b=S.books[r],g=r.startsWith('g-')&&r.slice(2);const ap=r==='apr',st=r==='stats';if(ap)TRK.once('aprendizado');$('#app').innerHTML=st?statsV():ap?aprV():b?bookV(b):g?roomV(g):libV();st?statsInit():ap?aprInit():b?list():g?grid():results(1);qdRender();$('#hq').value=view.q;document.body.classList.toggle('inb',!!b);tr(document.body)}
 const srt=bs=>{const d=b=>Math.max(0,...b.hl.map(h=>h.d)),k={recent:b=>-d(b),oldest:b=>d(b)||9e15,title:b=>b.title.toLowerCase(),author:b=>(b.author||'~').toLowerCase(),count:b=>-b.hl.length,rating:b=>-b.r}[view.sort]||(b=>-d(b));return bs.map(b=>[k(b),b]).sort((x,y)=>x[0]<y[0]?-1:x[0]>y[0]?1:0).map(x=>x[1])};
 const tile=b=>`<a class="bk" href="#${b.id}" data-a="op" data-i="${b.id}" title="${esc(b.title)}"><div class="sf">${cover(b)}</div><div class="m"><span>${'★'.repeat(b.r)||'&nbsp;'}</span><small>${tt('{n} grifos',{n:b.hl.length})}</small></div></a>`;
 const PAL=['#6b1f2a','#1f3a5f','#2f4a3b','#b8862b','#e8dcc0','#1c1c1c','#8a5a36','#2b5a5e','#5a3a5e','#a4472b','#3b4a2b','#c9b88f'];
@@ -768,6 +1048,7 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t
  else if(a==='op'){e.preventDefault();mclose();openBook(i)}
  else if(a==='ap')location.hash='apr'
  else if(a==='trk'){TRK.tog();settings(0)}
+ else if(a==='stt')location.hash='stats'
  else if(a==='st'){applySkin();settings(0)}
  else if(a==='s1'){mclose();$('#f').click()}
  else if(/^s[2-5]$/.test(a)){applySkin();settings(+a[1])}
@@ -1147,6 +1428,13 @@ palette:'<circle cx="13.5" cy="6.5" r=".6"/><circle cx="17.5" cy="10.5" r=".6"/>
 send:'<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',
 lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
 heart:'<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+bulb:'<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/>',
+repeat:'<polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>',
+target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+arrowr:'<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>',
+chart:'<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>',
+flame:'<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+calendar:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
 refresh:'<polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>'};
 IC.bulb='<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/>';
 const I=n=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
@@ -1395,12 +1683,13 @@ async function apSendInterest(d){if(INTERESSE_URL){try{const r=await fetch(INTER
  const body='Atividade: '+d.atividade+'\nNota: '+d.nota+'/5\nE-mail: '+d.email+'\nComentário: '+(d.comentario||'-');
  location.href='mailto:'+INTERESSE_MAIL+'?subject='+encodeURIComponent('Tenho interesse - Marginália ('+d.atividade+')')+'&body='+encodeURIComponent(body);
  toast('Abrindo seu e-mail para enviar. Se nada abrir, escreva para '+INTERESSE_MAIL,7000)}
+const APX={a:{h:28,ic:'bulb',q:'Quero entender melhor'},b:{h:265,ic:'repeat',q:'Quero lembrar do que li'},c:{h:165,ic:'globe',q:'Quero praticar um idioma'},d:{h:340,ic:'target',q:'Quero aplicar na minha vida'}};
 function aprV(){const m=AM.find(x=>x[0]===AP.m),sub=apSub(),c=apS().cfg;
- let h='<div class="apw"><button class="lk" data-ap="back">← '+(m?'Voltar':'Biblioteca')+'</button>';
- if(!m)h+='<h2>Aprenda com o que você lê.</h2><p class="sm">Explore ideias, aprofunde conhecimentos, pratique idiomas e transforme seus livros em experiências de aprendizado.</p><div class="apg">'+AM.map(x=>'<button class="apc" data-ap="m" data-i="'+x[0]+'"><b>'+x[1]+'</b><span class="sm">'+x[2]+'</span><ul>'+x[3].map(s=>'<li>'+s[1]+'</li>').join('')+'</ul></button>').join('')+'</div>'+apSoon();
- else if(!sub)h+='<h2>'+m[1]+'</h2><p class="sm">'+m[2]+'</p><div class="apg">'+m[3].map(s=>'<div class="apc apcw"><button type="button" class="apmain" data-ap="s" data-i="'+s[0]+'"><b>'+s[1]+'</b><span class="sm">'+s[2]+'</span></button><div class="apfoot"><span class="soon">'+I('lock')+'Em breve</span><button type="button" class="apint" data-ap="int" data-i="'+s[0]+'">'+I('heart')+'<span>Tenho interesse</span></button></div></div>').join('')+'</div>';
+ let h='<div class="apw'+(m?'':' wide')+'"'+(m?' style="--h:'+APX[m[0]].h+'"':'')+'><button class="lk" data-ap="back">← '+(m?'Voltar':'Biblioteca')+'</button>';
+ if(!m)h+='<h2>Aprenda com o que você lê.</h2><p class="sm">Escolha como você quer estudar seus livros e seus grifos.</p><div class="apgrid">'+AM.map(x=>{const d=APX[x[0]];return '<button type="button" class="apb" data-ap="m" data-i="'+x[0]+'" style="--h:'+d.h+'"><span class="apbi">'+I(d.ic)+'</span><span class="apq">'+d.q+'</span><b>'+x[1]+'</b><span class="apd">'+x[2]+'</span><ul>'+x[3].map(s=>'<li>'+s[1]+'</li>').join('')+'</ul><span class="apgo">Ver atividades '+I('arrowr')+'</span></button>'}).join('')+'</div>'+apSoon();
+ else if(!sub)h+='<h2 class="apch"><span class="apbi">'+I(APX[m[0]].ic)+'</span>'+m[1]+'</h2><p class="sm">'+m[2]+'</p><div class="apg">'+m[3].map(s=>'<div class="apc apcw"><button type="button" class="apmain" data-ap="s" data-i="'+s[0]+'"><b>'+s[1]+'</b><span class="sm">'+s[2]+'</span></button><div class="apfoot"><span class="soon">'+I('lock')+'Em breve</span><button type="button" class="apint" data-ap="int" data-i="'+s[0]+'">'+I('heart')+'<span>Tenho interesse</span></button></div></div>').join('')+'</div>';
  else{const f=sub[3],L=[['lang','Escolher o idioma de aprendizado e o seu nível'],['concept','Informar um conceito ou tema'],['book','Escolher um livro da sua estante'],['book2','Escolher um segundo livro'],['hl','Usar seus grifos como material']].filter(x=>f.includes(x[0]));
-  h+='<h2>'+sub[1]+'</h2><p class="sm">'+sub[2]+'</p><div class="aplk"><span class="aplb">'+I('lock')+'Em breve</span><p>Esta atividade ainda está em desenvolvimento. Mostramos aqui a ideia para você nos dizer se faria sentido no seu dia a dia.</p>'+(L.length?'<h4>O que você poderá fazer</h4><ul>'+L.map(x=>'<li>'+x[1]+'</li>').join('')+'</ul>':'')+'<button class="btn" data-ap="int" data-i="'+sub[0]+'">'+I('heart')+'<span>Tenho interesse</span></button></div>'}
+  h+='<h2 class="apch"><span class="apbi">'+I(APX[m[0]].ic)+'</span>'+sub[1]+'</h2><p class="sm">'+sub[2]+'</p><div class="aplk"><span class="aplb">'+I('lock')+'Em breve</span><p>Esta atividade ainda está em desenvolvimento. Mostramos aqui a ideia para você nos dizer se faria sentido no seu dia a dia.</p>'+(L.length?'<h4>O que você poderá fazer</h4><ul>'+L.map(x=>'<li>'+x[1]+'</li>').join('')+'</ul>':'')+'<button class="btn" data-ap="int" data-i="'+sub[0]+'">'+I('heart')+'<span>Tenho interesse</span></button></div>'}
  
  return h+'</div>'}
 function aprInit(){if(AP.run&&AP.kind==='chat'&&!AP.msgs.length&&apKey()&&!AP.busy)apSend('Vamos começar.')}
