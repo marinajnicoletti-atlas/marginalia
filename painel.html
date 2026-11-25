@@ -70,5 +70,6 @@ var IN=R.filter(function(r){return r.e==='interest'}),ia={},sm=0;IN.forEach(func
 function show(on){$('#app').hidden=!on;$('#lg').hidden=!!on}
 $('#f').onsubmit=function(e){e.preventDefault();KEY=$('#k').value.trim();if(!KEY)return;s(KEY);$('#er').textContent='';show(1);load()};
 $('#rf').onclick=load;$('#ex').onclick=function(){s('');KEY='';$('#k').value='';show(0)};
+var hk=(location.hash.match(/^#k=([\w-]+)/)||[])[1];if(hk){s(hk);try{history.replaceState(null,'',location.pathname)}catch(e){}}
 KEY=g();if(KEY){show(1);load()}else show(0);setInterval(function(){if(KEY&&!document.hidden)load()},60000);
 </script></body></html>
